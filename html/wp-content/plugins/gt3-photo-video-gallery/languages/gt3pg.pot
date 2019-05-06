@@ -1,0 +1,1358 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: GT3 Photo & Video Gallery - Lite\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: gt3-photo-video-gallery.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: core/actions.php:45 src/editor/blocks/GT3/edit.js:287
+#: src/editor/blocks/GT3/index.js:29
+msgid "GT3 Photo & Video Gallery"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:10
+msgid "Gallery Style"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:11
+msgid "You can select different types to display images thumbnails."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:16
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:171
+#: src/editor/blocks/GT3/inspector.js:83
+#: src/settings/adminPanelsOptions/gridType.js:33 src/settings/init.js:192
+#: src/settings/init_bak.js:147
+msgid "Square"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:17
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:172
+#: src/editor/blocks/GT3/inspector.js:84 src/settings/init.js:193
+#: src/settings/init_bak.js:148
+msgid "Rectangle"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:18
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:173
+#: src/editor/blocks/GT3/inspector.js:85
+#: src/settings/adminPanelsOptions/gridType.js:36 src/settings/init.js:194
+#: src/settings/init_bak.js:149
+msgid "Circle"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:19
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:174
+#: src/editor/blocks/GT3/inspector.js:86 src/settings/init.js:195
+#: src/settings/init_bak.js:150 src/settings/left-panel/index.js:152
+msgid "Masonry"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:26
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:9
+#: src/editor/blocks/GT3/inspector.js:123
+#: src/settings/adminPanelsOptions/linkTo.js:29 src/settings/init_bak.js:261
+msgid "Link Image To"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:27
+#: src/settings/adminPanelsOptions/linkTo.js:30
+#: src/settings/adminPanelsOptions/packery.js:28
+#: src/settings/adminPanelsOptions/slider.js:40 src/settings/init_bak.js:262
+msgid "You may use this option to choose where to link your image to."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:33
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:18
+#: src/editor/blocks/GT3/inspector.js:126
+#: src/settings/adminPanelsOptions/linkTo.js:35 src/settings/init_bak.js:264
+msgid "Attachment Page"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:38
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:19
+#: src/editor/blocks/GT3/inspector.js:127
+#: src/settings/adminPanelsOptions/linkTo.js:36 src/settings/init_bak.js:265
+msgid "File"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:43
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:20
+#: src/editor/blocks/GT3/inspector.js:128
+#: src/settings/adminPanelsOptions/linkTo.js:37 src/settings/init_bak.js:266
+msgid "Lightbox"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:48
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:21
+#: src/editor/blocks/GT3/inspector.js:129
+#: src/settings/adminPanelsOptions/linkTo.js:38 src/settings/init_bak.js:267
+msgid "None"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:57
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:28
+#: src/editor/blocks/GT3/inspector.js:275
+#: src/settings/adminPanelsOptions/imageSize.js:29 src/settings/init_bak.js:402
+msgid "Image Size"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:58
+#: src/settings/adminPanelsOptions/imageSize.js:30
+msgid "Please select the proper image size to display in the content."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:66
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:41
+#: core/actions/image_size_names_choose.php:9
+msgid "Thumbnail"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:67
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:42
+#: core/actions/image_size_names_choose.php:10
+msgid "Medium"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:68
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:43
+#: core/actions/image_size_names_choose.php:12
+#: src/editor/blocks/GT3/inspector.js:170
+#: src/editor/blocks/GT3/inspector.js:378 src/settings/init_bak.js:305
+#: src/settings/init_bak.js:499
+msgid "Large"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:69
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:44
+#: src/editor/blocks/GT3/inspector.js:281
+#: src/settings/adminPanelsOptions/imageSize.js:39
+#: src/settings/adminPanelsOptions/lightbox.js:47
+#: src/settings/adminPanelsOptions/slider.js:49
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsImageSize.js:38
+#: src/settings/init_bak.js:407
+msgid "Full Size"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:82
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:58
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:80
+#: src/editor/blocks/GT3/inspector.js:288
+#: src/settings/adminPanelsOptions/columns.js:28
+msgid "Columns"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:83
+#: src/settings/adminPanelsOptions/columns.js:29
+msgid "You have an option to display from one up to nine image columns."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:100
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:101
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:116
+#: src/editor/blocks/GT3/inspector.js:306
+#: src/settings/adminPanelsOptions/random.js:26 src/settings/init_bak.js:431
+msgid "Random Order"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:101
+#: src/settings/adminPanelsOptions/random.js:27
+msgid "Display the images by default or randomly."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:108
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:147
+#: src/editor/blocks/GT3/inspector.js:326
+#: src/settings/adminPanelsOptions/margin.js:27 src/settings/init_bak.js:450
+msgid "Margin, px"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:109
+#: core/actions/gt3_admin_mix_tabs_controls.php:145
+#: src/settings/adminPanelsOptions/borderSize.js:28
+#: src/settings/adminPanelsOptions/margin.js:28
+msgid "You can add margins to the images. Please note that they are in pixels."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:121
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:180
+#: src/editor/blocks/GT3/inspector.js:417
+#: src/settings/adminPanelsOptions/cornersType.js:25
+#: src/settings/init_bak.js:536
+msgid "Corners Type"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:122
+msgid "You can choose either right angle or rounded individually."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:127
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:189
+#: src/editor/blocks/GT3/inspector.js:420
+#: src/settings/adminPanelsOptions/cornersType.js:31
+#: src/settings/init_bak.js:538
+msgid "Standard"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:128
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:190
+#: src/editor/blocks/GT3/inspector.js:421
+#: src/settings/adminPanelsOptions/cornersType.js:32
+#: src/settings/init_bak.js:539
+msgid "Rounded"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:135
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:196
+#: src/editor/blocks/GT3/inspector.js:428
+#: src/settings/adminPanelsOptions/borderType.js:31
+msgid "Image Border"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:136
+#: src/settings/adminPanelsOptions/borderType.js:32
+msgid "You can either display or hide the image border."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:144
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:212
+#: src/editor/blocks/GT3/inspector.js:440
+#: src/settings/adminPanelsOptions/borderSize.js:27
+#: src/settings/init_bak.js:557
+msgid "Border Size, px"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:158
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:227
+#: src/editor/blocks/GT3/inspector.js:448
+#: src/settings/adminPanelsOptions/borderPadding.js:27
+msgid "Border Padding, px"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:159
+#: src/settings/adminPanelsOptions/borderPadding.js:28
+msgid "Add border padding to the image in pixels."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:172
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:242
+#: src/editor/blocks/GT3/inspector.js:462
+#: src/settings/adminPanelsOptions/borderColor.js:33
+#: src/settings/init_bak.js:579
+msgid "Border Color"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:173
+#: src/settings/adminPanelsOptions/borderColor.js:34
+msgid "Select the desired border color."
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:184
+#: src/settings/adminPanelsOptions/customCss.js:27
+msgid "Custom CSS"
+msgstr ""
+
+#: core/actions/gt3_admin_mix_tabs_controls.php:185
+#: src/settings/adminPanelsOptions/customCss.js:28
+msgid "You can add custom CSS to the gallery."
+msgstr ""
+
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:17
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:36
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:88
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:124
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:140
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:170
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:188
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:204
+#: src/editor/blocks/GT3/inspector.js:82 src/editor/blocks/GT3/inspector.js:125
+#: src/editor/blocks/GT3/inspector.js:142
+#: src/editor/blocks/GT3/inspector.js:159
+#: src/editor/blocks/GT3/inspector.js:169
+#: src/editor/blocks/GT3/inspector.js:185
+#: src/editor/blocks/GT3/inspector.js:198
+#: src/editor/blocks/GT3/inspector.js:209
+#: src/editor/blocks/GT3/inspector.js:220
+#: src/editor/blocks/GT3/inspector.js:232
+#: src/editor/blocks/GT3/inspector.js:244
+#: src/editor/blocks/GT3/inspector.js:254
+#: src/editor/blocks/GT3/inspector.js:264
+#: src/editor/blocks/GT3/inspector.js:277
+#: src/editor/blocks/GT3/inspector.js:290
+#: src/editor/blocks/GT3/inspector.js:308
+#: src/editor/blocks/GT3/inspector.js:319
+#: src/editor/blocks/GT3/inspector.js:350
+#: src/editor/blocks/GT3/inspector.js:367
+#: src/editor/blocks/GT3/inspector.js:377
+#: src/editor/blocks/GT3/inspector.js:392
+#: src/editor/blocks/GT3/inspector.js:406
+#: src/editor/blocks/GT3/inspector.js:419
+#: src/editor/blocks/GT3/inspector.js:430 src/settings/init.js:191
+#: src/settings/init_bak.js:146
+msgid "Default"
+msgstr ""
+
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:125
+#: src/editor/blocks/GT3/inspector.js:309
+#: src/editor/components/QueryControl.js:321 src/settings/init_bak.js:433
+msgid "Random"
+msgstr ""
+
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:126
+#: src/editor/blocks/GT3/inspector.js:310 src/settings/init_bak.js:434
+msgid "Ordered"
+msgstr ""
+
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:132
+#: src/editor/blocks/GT3/inspector.js:317
+msgid "Margin"
+msgstr ""
+
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:141
+#: src/editor/blocks/GT3/inspector.js:320
+msgid "Custom"
+msgstr ""
+
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:162
+#: src/editor/blocks/GT3/inspector.js:337 src/settings/init_bak.js:461
+msgid "Thumbnail Type"
+msgstr ""
+
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:205
+#: src/editor/blocks/GT3/inspector.js:431
+msgid "On"
+msgstr ""
+
+#: core/actions/gt3_before_admin_panel_tabs_controls.php:206
+#: src/editor/blocks/GT3/inspector.js:432
+msgid "Off"
+msgstr ""
+
+#: core/actions/gt3pg_add_gallery_template.php:61
+msgid "GT3 Photo & Video Gallery Settings"
+msgstr ""
+
+#: core/actions/gt3pg_attachment_field_credit.php:9
+msgid "Lite version supports only Youtube and Vimeo"
+msgstr ""
+
+#: core/actions/gt3pg_attachment_field_credit.php:11
+msgid "Video Url"
+msgstr ""
+
+#: core/actions/gt3pg_attachment_field_credit.php:17
+msgid "External Link"
+msgstr ""
+
+#: core/actions/image_size_names_choose.php:11
+msgid "Medium-large"
+msgstr ""
+
+#: core/class/GT3_EDD_SL_Plugin_Updater.php:204
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: core/class/GT3_EDD_SL_Plugin_Updater.php:212
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s "
+"or %5$supdate now%6$s."
+msgstr ""
+
+#: core/class/GT3_EDD_SL_Plugin_Updater.php:430
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: core/class/GT3_EDD_SL_Plugin_Updater.php:430
+msgid "Error"
+msgstr ""
+
+#: core/class/gt3pg_updater.php:107
+msgid "Enter valid license key for automatic updates."
+msgstr ""
+
+#: core/class/gt3pg_updater.php:157
+msgid "An error occurred, please try again. "
+msgstr ""
+
+#: core/class/gt3pg_updater.php:164
+#, php-format
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: core/class/gt3pg_updater.php:169
+msgid "Your license key has been disabled."
+msgstr ""
+
+#: core/class/gt3pg_updater.php:172
+msgid "Invalid license."
+msgstr ""
+
+#: core/class/gt3pg_updater.php:176
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: core/class/gt3pg_updater.php:179
+#, php-format
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: core/class/gt3pg_updater.php:182
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: core/class/gt3pg_updater.php:185
+msgid "Product not found."
+msgstr ""
+
+#: core/class/gt3pg_updater.php:188 core/class/gt3pg_updater.php:224
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: plugin.php:151
+msgid "Support Forum"
+msgstr ""
+
+#: plugin.php:152 rate.php:19
+msgid "Rate"
+msgstr ""
+
+#: plugin.php:177
+msgid "Settings"
+msgstr ""
+
+#: src/editor/blocks/GT3/index.js:29
+msgid "GT3 Photo & Video Gallery (Deprecated)"
+msgstr ""
+
+#: src/editor/blocks/GT3/index.js:31
+msgid "GT3 Photo & Video Gallery Pro"
+msgstr ""
+
+#: src/editor/blocks/GT3/index.js:31
+msgid "GT3 Photo & Video Gallery Lite"
+msgstr ""
+
+#: src/editor/blocks/GT3/index.js:33
+msgid "layout"
+msgstr ""
+
+#: src/editor/blocks/GT3/index.js:34
+msgid "gallery"
+msgstr ""
+
+#: src/editor/blocks/GT3/index.js:35
+msgid "photo"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:89 src/settings/init.js:198
+#: src/settings/init_bak.js:153 src/settings/left-panel/index.js:173
+msgid "Slider"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:92 src/settings/init.js:199
+#: src/settings/init_bak.js:156 src/settings/left-panel/index.js:159
+msgid "Packery"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:99
+msgid "Gallery Images"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:119
+msgid "Main Settings"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:137
+msgid "Lightbox Settings"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:140 src/settings/init_bak.js:183
+msgid "Autoplay"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:143
+#: src/editor/blocks/GT3/inspector.js:160
+#: src/editor/blocks/GT3/inspector.js:186
+#: src/editor/blocks/GT3/inspector.js:199
+#: src/editor/blocks/GT3/inspector.js:210
+#: src/editor/blocks/GT3/inspector.js:221
+#: src/editor/blocks/GT3/inspector.js:233
+#: src/editor/blocks/GT3/inspector.js:245
+#: src/editor/blocks/GT3/inspector.js:255
+#: src/editor/blocks/GT3/inspector.js:265
+#: src/editor/blocks/GT3/inspector.js:351
+#: src/editor/blocks/GT3/inspector.js:368
+#: src/editor/blocks/GT3/inspector.js:393 src/settings/init_bak.js:185
+#: src/settings/init_bak.js:201 src/settings/init_bak.js:320
+#: src/settings/init_bak.js:342 src/settings/init_bak.js:374
+#: src/settings/init_bak.js:392 src/settings/init_bak.js:513
+msgid "Disabled"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:144
+#: src/editor/blocks/GT3/inspector.js:161
+#: src/editor/blocks/GT3/inspector.js:187
+#: src/editor/blocks/GT3/inspector.js:200
+#: src/editor/blocks/GT3/inspector.js:211
+#: src/editor/blocks/GT3/inspector.js:222
+#: src/editor/blocks/GT3/inspector.js:234
+#: src/editor/blocks/GT3/inspector.js:246
+#: src/editor/blocks/GT3/inspector.js:256
+#: src/editor/blocks/GT3/inspector.js:266
+#: src/editor/blocks/GT3/inspector.js:352
+#: src/editor/blocks/GT3/inspector.js:369
+#: src/editor/blocks/GT3/inspector.js:394 src/settings/init_bak.js:186
+#: src/settings/init_bak.js:202 src/settings/init_bak.js:321
+#: src/settings/init_bak.js:343 src/settings/init_bak.js:375
+#: src/settings/init_bak.js:393 src/settings/init_bak.js:514
+msgid "Enabled"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:150
+#: src/editor/blocks/GT3/inspector.js:358
+#: src/settings/adminPanelsOptions/slider.js:103 src/settings/init_bak.js:287
+#: src/settings/init_bak.js:481
+msgid "Autoplay Time (sec.)"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:157
+#: src/editor/blocks/GT3/inspector.js:365
+#: src/settings/adminPanelsOptions/lightbox.js:65
+#: src/settings/adminPanelsOptions/slider.js:67 src/settings/init_bak.js:199
+#: src/settings/left-panel/index.js:166
+msgid "Thumbnails"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:167
+#: src/editor/blocks/GT3/inspector.js:375 src/settings/init_bak.js:303
+#: src/settings/init_bak.js:497
+msgid "Select image size"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:171
+#: src/editor/blocks/GT3/inspector.js:379 src/settings/init_bak.js:306
+#: src/settings/init_bak.js:500
+msgid "Full"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:172
+#: src/editor/blocks/GT3/inspector.js:380
+#: src/settings/adminPanelsOptions/imageSize.js:38
+#: src/settings/adminPanelsOptions/lightbox.js:46
+#: src/settings/adminPanelsOptions/slider.js:48
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsImageSize.js:37
+#: src/settings/init_bak.js:307 src/settings/init_bak.js:501
+msgid "Optimized"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:178
+#: src/editor/blocks/GT3/inspector.js:386
+#: src/settings/adminPanelsOptions/imageSize.js:45
+#: src/settings/adminPanelsOptions/lightbox.js:53
+#: src/settings/adminPanelsOptions/slider.js:55
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsImageSize.js:44
+#: src/settings/init_bak.js:313 src/settings/init_bak.js:507
+#: views/gt3pg_plugin_options.php:19
+msgid "It requires GT3 Image Optimizer plugin"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:183
+#: src/editor/blocks/GT3/inspector.js:390
+#: src/settings/adminPanelsOptions/lightbox.js:85 src/settings/init_bak.js:318
+#: src/settings/init_bak.js:511
+msgid "Image Scaling"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:196
+#: src/settings/adminPanelsOptions/showTitle.js:26
+msgid "Show Image Title"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:207 src/settings/init_bak.js:340
+msgid "Show Captions"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:218
+msgid "Deeplink"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:230
+#: src/settings/adminPanelsOptions/rightClick.js:26
+msgid "Right Click Guard"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:242
+#: src/settings/adminPanelsOptions/slider.js:97 src/settings/init_bak.js:372
+msgid "Social Links"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:252
+#: src/settings/adminPanelsOptions/lightbox.js:95
+msgid "Download Image"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:262
+#: src/settings/adminPanelsOptions/slider.js:87 src/settings/init_bak.js:390
+msgid "YouTube Width"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:278
+#: src/settings/adminPanelsOptions/imageSize.js:35
+#: src/settings/adminPanelsOptions/lightbox.js:43
+#: src/settings/adminPanelsOptions/slider.js:45
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsImageSize.js:34
+#: src/settings/init_bak.js:404
+msgid "Thumbnail (768px)"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:279
+#: src/settings/adminPanelsOptions/imageSize.js:36
+#: src/settings/adminPanelsOptions/lightbox.js:44
+#: src/settings/adminPanelsOptions/slider.js:46
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsImageSize.js:35
+#: src/settings/init_bak.js:405
+msgid "Medium (300px)"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:280
+#: src/settings/adminPanelsOptions/imageSize.js:37
+#: src/settings/adminPanelsOptions/lightbox.js:45
+#: src/settings/adminPanelsOptions/slider.js:47
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsImageSize.js:36
+#: src/settings/init_bak.js:406
+msgid "Large (1024px)"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:291
+msgid "1"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:292
+msgid "2"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:293
+msgid "3"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:294
+msgid "4"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:295
+msgid "5"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:296
+msgid "6"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:297
+msgid "7"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:298
+msgid "8"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:299
+msgid "9"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:345
+msgid "Slider Settings"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:348
+msgid "Slider Autoplay"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:404
+msgid "Packery Grid"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:407
+msgid "Type1"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:408
+msgid "Type2"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:409
+msgid "Type3"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:410
+msgid "Type4"
+msgstr ""
+
+#: src/editor/blocks/GT3/inspector.js:456 src/settings/init_bak.js:573
+msgid "Color Settings"
+msgstr ""
+
+#: src/editor/components/Animation.js:60
+msgid "No Animation"
+msgstr ""
+
+#: src/editor/components/Animation.js:62
+msgid "Attention Seekers"
+msgstr ""
+
+#: src/editor/components/Animation.js:64
+msgid "Bounce"
+msgstr ""
+
+#: src/editor/components/Animation.js:65
+msgid "Flash"
+msgstr ""
+
+#: src/editor/components/Animation.js:66
+msgid "Head Shake"
+msgstr ""
+
+#: src/editor/components/Animation.js:67
+msgid "Heart Beat"
+msgstr ""
+
+#: src/editor/components/Animation.js:68
+msgid "Jello"
+msgstr ""
+
+#: src/editor/components/Animation.js:69
+msgid "Pulse"
+msgstr ""
+
+#: src/editor/components/Animation.js:70
+msgid "Rubber Band"
+msgstr ""
+
+#: src/editor/components/Animation.js:71
+msgid "Shake"
+msgstr ""
+
+#: src/editor/components/Animation.js:72
+msgid "Swing"
+msgstr ""
+
+#: src/editor/components/Animation.js:73
+msgid "Tada"
+msgstr ""
+
+#: src/editor/components/Animation.js:74
+msgid "Wobble"
+msgstr ""
+
+#: src/editor/components/Animation.js:78
+msgid "Bouncing"
+msgstr ""
+
+#: src/editor/components/Animation.js:80
+msgid "Bounce In"
+msgstr ""
+
+#: src/editor/components/Animation.js:81
+msgid "Bounce In Down"
+msgstr ""
+
+#: src/editor/components/Animation.js:82
+msgid "Bounce In Left"
+msgstr ""
+
+#: src/editor/components/Animation.js:83
+msgid "Bounce In Right"
+msgstr ""
+
+#: src/editor/components/Animation.js:84
+msgid "Bounce In Up"
+msgstr ""
+
+#: src/editor/components/Animation.js:88
+msgid "Fading"
+msgstr ""
+
+#: src/editor/components/Animation.js:90
+msgid "Fade In"
+msgstr ""
+
+#: src/editor/components/Animation.js:91
+msgid "Fade In Down"
+msgstr ""
+
+#: src/editor/components/Animation.js:92
+msgid "Fade In DownBig"
+msgstr ""
+
+#: src/editor/components/Animation.js:93
+msgid "Fade In Left"
+msgstr ""
+
+#: src/editor/components/Animation.js:94
+msgid "Fade In LeftBig"
+msgstr ""
+
+#: src/editor/components/Animation.js:95
+msgid "Fade In Right"
+msgstr ""
+
+#: src/editor/components/Animation.js:96
+msgid "Fade In RightBig"
+msgstr ""
+
+#: src/editor/components/Animation.js:97
+msgid "Fade In Up"
+msgstr ""
+
+#: src/editor/components/Animation.js:98
+msgid "Fade In UpBig"
+msgstr ""
+
+#: src/editor/components/Animation.js:102
+msgid "Flippers"
+msgstr ""
+
+#: src/editor/components/Animation.js:104
+msgid "Flip"
+msgstr ""
+
+#: src/editor/components/Animation.js:105
+msgid "Flip In X"
+msgstr ""
+
+#: src/editor/components/Animation.js:106
+msgid "Flip In Y"
+msgstr ""
+
+#: src/editor/components/Animation.js:110
+msgid "Rotating"
+msgstr ""
+
+#: src/editor/components/Animation.js:112
+msgid "Rotate In"
+msgstr ""
+
+#: src/editor/components/Animation.js:113
+msgid "Rotate In Down Left"
+msgstr ""
+
+#: src/editor/components/Animation.js:114
+msgid "Rotate In Down Right"
+msgstr ""
+
+#: src/editor/components/Animation.js:115
+msgid "Rotate In Up Left"
+msgstr ""
+
+#: src/editor/components/Animation.js:116
+msgid "Rotate In Up Right"
+msgstr ""
+
+#: src/editor/components/Animation.js:120
+msgid "Zoom"
+msgstr ""
+
+#: src/editor/components/Animation.js:122
+msgid "Zoom In"
+msgstr ""
+
+#: src/editor/components/Animation.js:123
+msgid "Zoom In Down"
+msgstr ""
+
+#: src/editor/components/Animation.js:124
+msgid "Zoom In Left"
+msgstr ""
+
+#: src/editor/components/Animation.js:125
+msgid "Zoom In Right"
+msgstr ""
+
+#: src/editor/components/Animation.js:126
+msgid "Zoom In Up"
+msgstr ""
+
+#: src/editor/components/Animation.js:130
+msgid "Sliding"
+msgstr ""
+
+#: src/editor/components/Animation.js:132
+msgid "Slide In Down"
+msgstr ""
+
+#: src/editor/components/Animation.js:133
+msgid "Slide In Left"
+msgstr ""
+
+#: src/editor/components/Animation.js:134
+msgid "Slide In Right"
+msgstr ""
+
+#: src/editor/components/Animation.js:135
+msgid "Slide In Up"
+msgstr ""
+
+#: src/editor/components/Animation.js:139
+msgid "Specials"
+msgstr ""
+
+#: src/editor/components/Animation.js:141
+msgid "Jack In The Box"
+msgstr ""
+
+#: src/editor/components/Animation.js:142
+msgid "Light Speed In"
+msgstr ""
+
+#: src/editor/components/Animation.js:143
+msgid "Roll In"
+msgstr ""
+
+#: src/editor/components/Animation.js:151
+msgid "Animations"
+msgstr ""
+
+#: src/editor/components/Animation.js:166
+msgid "Infinite Animation"
+msgstr ""
+
+#: src/editor/components/Animation.js:172
+msgid "Animation delay"
+msgstr ""
+
+#: src/editor/components/Animation.js:175
+msgid "No Delay"
+msgstr ""
+
+#: src/editor/components/Animation.js:176
+msgid "1 second"
+msgstr ""
+
+#: src/editor/components/Animation.js:177
+msgid "2 seconds"
+msgstr ""
+
+#: src/editor/components/Animation.js:178
+msgid "3 seconds"
+msgstr ""
+
+#: src/editor/components/Animation.js:179
+msgid "4 seconds"
+msgstr ""
+
+#: src/editor/components/Animation.js:180
+msgid "5 seconds"
+msgstr ""
+
+#: src/editor/components/Animation.js:186
+msgid "Animation Speed"
+msgstr ""
+
+#: src/editor/components/Animation.js:189
+msgid "Slower"
+msgstr ""
+
+#: src/editor/components/Animation.js:190
+msgid "Slow"
+msgstr ""
+
+#: src/editor/components/Animation.js:191
+msgid "Normal"
+msgstr ""
+
+#: src/editor/components/Animation.js:192
+msgid "Fast"
+msgstr ""
+
+#: src/editor/components/Animation.js:193
+msgid "Faster"
+msgstr ""
+
+#: src/editor/components/Gallery/MediaButton.js:16
+msgid "Select Files"
+msgstr ""
+
+#: src/editor/components/Gallery/MediaButton.js:27
+msgid "Select"
+msgstr ""
+
+#: src/editor/components/Gallery/MediaButton.js:66
+msgid "+ Add Media"
+msgstr ""
+
+#: src/editor/components/Gallery/MediaClearButton.js:12
+msgid "Clear Gallery"
+msgstr ""
+
+#: src/editor/components/Gallery/MediaController.js:59
+msgid "Are you really want remove all images?"
+msgstr ""
+
+#: src/editor/components/Gallery/MediaStatus.js:20
+#, javascript-format
+msgid "%s file"
+msgid_plural "%s files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/editor/components/Gallery/MediaStatus.js:20
+msgid "No files"
+msgstr ""
+
+#: src/editor/components/ImageControl.js:84
+msgid "Select a file from your library."
+msgstr ""
+
+#: src/editor/components/ImageControl.js:88
+#: src/editor/components/ImageControl.js:94
+msgid "Add Image"
+msgstr ""
+
+#: src/editor/components/ImageControl.js:111
+msgid "Remove Image"
+msgstr ""
+
+#: src/editor/components/ImageControl.js:118
+msgid "Change Image"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:316
+msgid "Date"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:317
+msgid "ID"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:318
+msgid "Author"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:319
+msgid "Title"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:320
+msgid "Modified"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:322
+msgid "Comment count"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:323
+msgid "Menu order"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:327
+msgid "Ascending"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:328
+msgid "Descending"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:335
+msgid "Post Count"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:341
+msgid "How many teasers to show? Enter number, -1 for All."
+msgstr ""
+
+#: src/editor/components/QueryControl.js:350
+msgid "Order By"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:355
+msgid "Select how to sort retrieved posts. More at"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:357
+msgid "WordPress codex page"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:362
+msgid "Order"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:366
+msgid "Designates the ascending or descending order"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:370
+msgid "Posts"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:371
+msgid "Filter output by custom Post, enter post names here"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:419
+msgid "Note: if selected Custom Posts - other settings will be disabled"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:426
+msgid "Category"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:427
+msgid ""
+"Filter output by custom taxonomies categories, enter category names here"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:471
+msgid "Tags"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:472
+msgid "Filter output by custom Tags, enter tags names here"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:517
+msgid "Users"
+msgstr ""
+
+#: src/editor/components/QueryControl.js:518
+msgid "Filter output by custom Users, enter users names here"
+msgstr ""
+
+#: src/editor/inspector.js:26
+msgid "Animation"
+msgstr ""
+
+#: src/editor/inspector.js:37
+msgid "Advanced"
+msgstr ""
+
+#: src/editor/inspector.js:40
+msgid "Additional CSS Class"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/cornersType.js:26
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsSize.js:29
+msgid "You can choose either right angel or rounded invidually."
+msgstr ""
+
+#: src/settings/adminPanelsOptions/gridType.js:27
+msgid "Grid Type"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/gridType.js:28
+msgid "Select Default Grid Type"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/gridType.js:34
+msgid "Rectangle 4x3"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/gridType.js:35
+msgid "Rectangle 16x9"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/lazyLoad.js:26
+msgid "Lazy Load"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/lazyLoad.js:27
+msgid "You can enable/disable Lazy Load."
+msgstr ""
+
+#: src/settings/adminPanelsOptions/lightbox.js:75
+#: src/settings/adminPanelsOptions/slider.js:77
+msgid "Show Caption"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/lightboxTheme.js:27
+msgid "Lightbox Theme"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/lightboxTheme.js:28
+msgid "Select Default Lightbox Theme"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/lightboxTheme.js:33
+msgid "Dark"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/lightboxTheme.js:34
+msgid "Light"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/packery.js:27
+msgid "Packery Type:"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/rightClick.js:27
+msgid ""
+"You can enable/disable right-click guard option to protect your image from "
+"downloading."
+msgstr ""
+
+#: src/settings/adminPanelsOptions/showCaption.js:26
+msgid "Show Caption Text"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/showCaption.js:27
+msgid ""
+"You can show the caption text for image on the page. This option is not "
+"available for the slider. "
+msgstr ""
+
+#: src/settings/adminPanelsOptions/showTitle.js:27
+msgid ""
+"You can show the image title on the page. This option is not available for "
+"the slider."
+msgstr ""
+
+#: src/settings/adminPanelsOptions/slider.js:39
+msgid "Slider Options"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_Controls.js:25
+msgid "Controls"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_Controls.js:26
+msgid "You can either display or hide the controls."
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_Size.js:25
+msgid "Thumbnails Size"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_Size.js:26
+msgid "You can choose Thumbnails Size."
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_Size.js:31
+msgid "16x9"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_Size.js:32
+msgid "4x3"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsImageSize.js:28
+msgid "Thumbnails Image Size"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsImageSize.js:29
+msgid ""
+"Please select the proper thumbnails image size to display in the content."
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsSize.js:28
+msgid "Thumbnails Type"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsSize.js:34
+msgid "Auto"
+msgstr ""
+
+#: src/settings/adminPanelsOptions/thumbnails_thumbnailsSize.js:35
+msgid "Fixed"
+msgstr ""
+
+#: src/settings/controls.js:88
+msgid "Settings Saved"
+msgstr ""
+
+#: src/settings/controls.js:92
+msgid "DONE! You've successfully saved the changes."
+msgstr ""
+
+#: src/settings/controls.js:110
+msgid "No"
+msgstr ""
+
+#: src/settings/controls.js:118 views/gt3pg_plugin_options.php:86
+#: views/gt3pg_plugin_options.php:134
+msgid "Save Settings"
+msgstr ""
+
+#: src/settings/init.js:203
+msgid "Warning"
+msgstr ""
+
+#: src/settings/left-panel/index.js:145
+msgid "Grid"
+msgstr ""
+
+#: views/gt3pg_plugin_options.php:30
+msgid "Need Help?"
+msgstr ""
+
+#: views/gt3pg_plugin_options.php:76
+msgid ""
+"This plugin lets you extend the functionality of the default WordPress "
+"gallery. To make the changes, please use the settings below. Once you've "
+"chosen the right parameters, please click <strong>\"Save Settings\"</strong> "
+"button."
+msgstr ""
+
+#: views/gt3pg_plugin_options.php:84 views/gt3pg_plugin_options.php:132
+msgid "Reset Settings"
+msgstr ""
+
+#: views/gt3pg_plugin_options.php:111
+msgid "How to Use Gallery. Video Tutorial."
+msgstr ""
+
+#: views/gt3pg_plugin_options.php:112
+msgid ""
+"Please watch this short video tutorial to see how to use our GT3 photo & "
+"video gallery."
+msgstr ""
+
+#: views/gt3pg_plugin_options.php:117
+msgid "Premium Photography WordPress Themes"
+msgstr ""
+
+#: views/gt3pg_plugin_options.php:118
+msgid ""
+"Check out our professionally developed Photo and Video WordPress themes. "
+"Easy way to build your awesome website."
+msgstr ""
+
+#: views/gt3pg_plugin_options.php:122
+msgid "View Demo"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "GT3 Photo & Video Gallery - Lite"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://gt3themes.com/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This powerful plugin lets you extend the functionality of the default "
+"WordPress gallery. You can easily customize the look and feel of the photo "
+"or video gallery. Discover the power of GT3themes products."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "GT3 Photo Gallery"
+msgstr ""
