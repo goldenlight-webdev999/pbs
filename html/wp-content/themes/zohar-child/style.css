@@ -1,0 +1,88 @@
+/*
+Theme Name: Zohar - Child
+Author: GT3themes
+Author URI: http://gt3themes.com
+Description: -
+Version: 1.0
+Template: zohar
+*/
+@import url("../zohar/style.css");
+.home .elementor-element{
+    background-attachment: fixed;
+}
+
+#mega-menu-wrap-main_menu #mega-menu-main_menu {
+	line-height: 96px;
+}
+.mega-toggle-label {
+	
+}
+#mega-menu-wrap-main_menu .mega-menu-toggle {
+	line-height: 100px !important;
+	height: 96px;
+}
+
+#gate_form {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 200px; 
+    width: 100%;
+    background-color: #fff;
+    z-index: 10;
+    height: 100%;
+}
+#gate_form form.wpcf7-form {
+	width: 600px;
+	margin-left: calc(50% - 300px);
+}
+.gt3_header_builder__container {
+	z-index: 20;
+}
+
+@media only screen and (min-width: 1200px) {
+	#mega-menu-wrap-main_menu #mega-menu-main_menu > li.mega-menu-item > a.mega-menu-link {
+		line-height: 96px;	
+		height: 100%;
+	}
+}
+
+@media (max-width: 1024px) {
+	.elementor-text-editor p {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.digit-custom .counter_text{
+		position: unset !important;
+	}	
+}
+
+@media only screen and (max-width: 599px) {
+	.counter, .hidden_end {
+		font-size: 60px !important;		
+	}
+	#gate_form form.wpcf7-form {
+		width: 80%;
+		margin-left: 10%;
+	}
+	#gate_form form.wpcf7-form input {
+		margin-bottom: 0px;
+	}
+	#gate_form form.wpcf7-form p {
+		margin-top: 5px;
+		margin-bottom: 15px;
+	}
+	#gate_form {		
+		padding-top: 120px; 		
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	.counter, .hidden_end {
+		font-size: 30px !important;
+	}
+}
+
+.gt3_revolution-slider-elementor .gt3_title_line.left {
+	margin-left: -120px !important;
+}
