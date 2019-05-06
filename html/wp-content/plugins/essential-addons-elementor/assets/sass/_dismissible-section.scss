@@ -1,0 +1,59 @@
+.eae-removeable-banner {
+    position: relative;
+
+    .banner-content {
+        max-width: 1170px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        &.content-top {
+            align-items: flex-start;
+        }
+        &.content-middle {
+            align-items: center;
+        }
+        &.content-bottom {
+            align-items: flex-end;
+        }
+        .banner-content-inner {
+            width: 100%;
+        }
+    }
+
+    .removeable-close-button {
+        position: absolute;
+        cursor: pointer;
+        line-height: 1;
+        transition: all 300ms ease-in-out;
+        &.top-left {
+            left: 15px;
+            top: 15px;
+        }
+        &.top-right {
+            right: 15px;
+            top: 15px;
+        }
+        &.bottom-left {
+            left: 15px;
+            bottom: 15px;
+        }
+        &.bottom-right {
+            right: 15px;
+            bottom: 15px;
+        }
+    }
+
+    .rm-section-scroll-button {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        cursor: pointer;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    #mc_embed_signup {
+        display: block;
+        width: 100%;
+    }
+}
