@@ -15,7 +15,7 @@ class Premium_Carousel extends Widget_Base {
 	}
 
 	public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Carousel';
+        return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Carousel', 'premium-addons-for-elementor') );
 	}
 
 	public function get_icon() {
@@ -461,7 +461,6 @@ class Premium_Carousel extends Widget_Base {
 		    ]
 		);
         
-        // If carousel slider is vertical type
 		$this->add_control('premium_carousel_arrow_icon_prev_ver',
 		    [
 		        'label'         => __( 'Top Icon', 'premium-addons-for-elementor' ),
@@ -760,7 +759,6 @@ class Premium_Carousel extends Widget_Base {
 			]
 		);
         
-        /*First Border Radius*/
         $this->add_control('premium_carousel_navigation_effect_border_radius',
             [
                 'label'         => __('Border Radius', 'premium-addons-for-elementor'),
@@ -785,8 +783,7 @@ class Premium_Carousel extends Widget_Base {
 		$settings = $this->get_settings();
         
         $vertical = $settings['premium_carousel_slider_type'] == 'vertical' ? true : false;
-		// responsive carousel set up
-
+		
 		$slides_on_desk = $settings['premium_carousel_responsive_desktop'];
 		if( $settings['premium_carousel_slides_to_show'] == 'all' ) {
 			$slidesToScroll = ! empty( $slides_on_desk ) ? $slides_on_desk : 1;
@@ -815,7 +812,7 @@ class Premium_Carousel extends Widget_Base {
         
         $autoplay = $settings['premium_carousel_autoplay'] == 'yes' ? true : false;
         
-        $autoplaySpeed = !empty( $settings['premium_carousel_autoplay_speed'] ) ? $settings['premium_carousel_autoplay_speed'] : '';
+        $autoplaySpeed = ! empty( $settings['premium_carousel_autoplay_speed'] ) ? $settings['premium_carousel_autoplay_speed'] : '';
         
         $draggable = $settings['premium_carousel_draggable_effect'] == 'yes' ? true  : false;
 		

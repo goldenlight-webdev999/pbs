@@ -152,7 +152,7 @@ ______                    _   _       _               _     _
   height: auto;
   margin: 0;
   outline: 0;
-  width: auto;
+  width: 100%;
 }
 
 .eael-contact-form input[type=submit] {
@@ -2281,6 +2281,7 @@ span.eael-testimonial-quote {
   padding: 1em 2em;
   border: 0px solid;
   font-size: 16px;
+  overflow: hidden;
 }
 
 .eael-load-more-button .button__loader {

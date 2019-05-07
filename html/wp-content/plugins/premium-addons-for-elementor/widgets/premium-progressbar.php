@@ -11,7 +11,7 @@ class Premium_Progressbar extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Progress Bar';
+		return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Progress Bar', 'premium-addons-for-elementor') );
 	}
     
     public function get_icon() {
@@ -191,7 +191,7 @@ class Premium_Progressbar extends Widget_Base {
                     'default'       => 'solid',
                     'options'       => [
                         'solid'    => __('Solid', 'premium-addons-for-elementor'),
-                        'stripped' => __('Stripped', 'premium-addons-for-elementor'),
+                        'stripped' => __('Striped', 'premium-addons-for-elementor'),
                         ],
                     ]
                 );

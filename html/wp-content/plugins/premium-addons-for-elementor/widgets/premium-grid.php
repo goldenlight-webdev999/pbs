@@ -6,7 +6,7 @@ if( !defined( 'ABSPATH' ) ) exit;
 
 class Premium_Grid extends Widget_Base {
     
-    public function get_name(){
+    public function get_name() {
         return 'premium-img-gallery';
     }
     
@@ -15,14 +15,14 @@ class Premium_Grid extends Widget_Base {
 	}
     
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Grid';
+		return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Grid', 'premium-addons-for-elementor') );
 	}
     
-    public function get_icon(){
+    public function get_icon() {
         return 'pa-grid-icon';
     }
     
-    public function get_style_depends(){
+    public function get_style_depends() {
         return [
             'pa-prettyphoto',
         ];
@@ -36,15 +36,15 @@ class Premium_Grid extends Widget_Base {
         ];
     }
     
-    public function is_reload_preview_required(){
+    public function is_reload_preview_required() {
         return true;
     }
     
-    public function get_categories(){
+    public function get_categories() {
         return ['premium-elements'];
     }
     
-    protected function _register_controls(){
+    protected function _register_controls() {
         
         $this->start_controls_section('premium_gallery_general',
             [
@@ -216,7 +216,7 @@ class Premium_Grid extends Widget_Base {
             [
                 'label'         => __('Rotation Degrees', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::NUMBER,
-                'description'   => __('Set rotation value in degress', 'premium-addons-for-elementor'),
+                'description'   => __('Set rotation value in degrees', 'premium-addons-for-elementor'),
                 'min'           => -180,
                 'max'           => 180,
                 'selectors'     => [
@@ -597,7 +597,6 @@ class Premium_Grid extends Widget_Base {
                     ]
                 );
         
-        /*First Border Radius*/
         $this->add_control('premium_gallery_general_border_radius',
                 [
                     'label'         => __('Border Radius', 'premium-addons-for-elementor'),
@@ -655,7 +654,6 @@ class Premium_Grid extends Widget_Base {
                     ]
                 );
         
-        /*First Border Radius*/
         $this->add_control('premium_gallery_img_border_radius',
                 [
                     'label'         => __('Border Radius', 'premium-addons-for-elementor'),
@@ -687,7 +685,6 @@ class Premium_Grid extends Widget_Base {
 			]
 		);
         
-        /*First Margin*/
         $this->add_responsive_control('premium_gallery_img_margin',
                 [
                     'label'         => __('Margin', 'premium-addons-for-elementor'),
@@ -699,7 +696,6 @@ class Premium_Grid extends Widget_Base {
                     ]
                 );
         
-        /*First Padding*/
         $this->add_responsive_control('premium_gallery_img_padding',
                 [
                     'label'         => __('Padding', 'premium-addons-for-elementor'),
@@ -740,7 +736,6 @@ class Premium_Grid extends Widget_Base {
                 ]
                 );
         
-         /*Fancy Text Typography*/
         $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
@@ -799,7 +794,6 @@ class Premium_Grid extends Widget_Base {
                     ]
                 );
         
-        /*First Border Radius*/
         $this->add_control('premium_gallery_content_border_radius',
                 [
                     'label'         => __('Border Radius', 'premium-addons-for-elementor'),
@@ -811,7 +805,6 @@ class Premium_Grid extends Widget_Base {
                     ]
                 );
         
-        /*First Text Shadow*/
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(),
             [
@@ -829,7 +822,6 @@ class Premium_Grid extends Widget_Base {
             ]
             );
         
-        /*First Margin*/
         $this->add_responsive_control('premium_gallery_content_margin',
                 [
                     'label'         => __('Margin', 'premium-addons-for-elementor'),
@@ -841,7 +833,6 @@ class Premium_Grid extends Widget_Base {
                     ]
                 );
         
-        /*First Padding*/
         $this->add_responsive_control('premium_gallery_content_padding',
                 [
                     'label'         => __('Padding', 'premium-addons-for-elementor'),
@@ -918,7 +909,6 @@ class Premium_Grid extends Widget_Base {
                 ]
                 );
         
-        /*Icon Border*/
         $this->add_group_control(
             Group_Control_Border::get_type(), 
                 [
@@ -927,7 +917,6 @@ class Premium_Grid extends Widget_Base {
                 ]
                 );
         
-        /*Button Border Radius*/
         $this->add_control('premium_gallery_icons_style_border_radius',
                 [
                     'label'         => __('Border Radius', 'premium-addons-for-elementor'),
@@ -939,7 +928,6 @@ class Premium_Grid extends Widget_Base {
                 ]
                 );
         
-        /*Button Shadow*/
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
                 [
@@ -949,7 +937,6 @@ class Premium_Grid extends Widget_Base {
                 ]
                 );
         
-        /*Button Margin*/
         $this->add_responsive_control('premium_gallery_icons_style_margin',
                 [
                     'label'         => __('Margin', 'premium-addons-for-elementor'),
@@ -960,7 +947,6 @@ class Premium_Grid extends Widget_Base {
                     ]
                 ]);
         
-        /*Button Padding*/
         $this->add_responsive_control('premium_gallery_icons_style_padding',
                 [
                     'label'         => __('Padding', 'premium-addons-for-elementor'),
@@ -1017,7 +1003,6 @@ class Premium_Grid extends Widget_Base {
                 ]
                 );
         
-        /*Button Border*/
         $this->add_group_control(
             Group_Control_Border::get_type(), 
                 [
@@ -1026,7 +1011,6 @@ class Premium_Grid extends Widget_Base {
                 ]
                 );
         
-        /*Button Border Radius*/
         $this->add_control('premium_gallery_icons_style_border_radius_hover',
                 [
                     'label'         => __('Border Radius', 'premium-addons-for-elementor'),
@@ -1038,7 +1022,6 @@ class Premium_Grid extends Widget_Base {
                 ]
                 );
         
-        /*Button Shadow*/
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
                 [
@@ -1048,7 +1031,6 @@ class Premium_Grid extends Widget_Base {
                 ]
                 );
         
-        /*Button Margin*/
         $this->add_responsive_control('premium_gallery_icons_style_margin_hover',
                 [
                     'label'         => __('Margin', 'premium-addons-for-elementor'),
@@ -1059,7 +1041,6 @@ class Premium_Grid extends Widget_Base {
                     ]
                 ]);
         
-        /*Button Padding*/
         $this->add_responsive_control('premium_gallery_icons_style_padding_hover',
                 [
                     'label'         => __('Padding', 'premium-addons-for-elementor'),
@@ -1431,15 +1412,19 @@ class Premium_Grid extends Widget_Base {
     }
     
     public function filter_cats( $string ) {
+        
 		$cat_filtered = strtolower( $string );
+        
         if( strpos( $cat_filtered, 'class' ) || strpos( $cat_filtered, 'src' ) ) {
             $cat_filtered = substr( $cat_filtered, strpos( $cat_filtered, '"' ) + 1 );
             $cat_filtered = strtok($cat_filtered, '"');
             $cat_filtered = preg_replace('/[http:.]/','',$cat_filtered);
             $cat_filtered = str_replace('/','',$cat_filtered);
         }
+        
 		$cat_filtered = preg_replace("/[\s_]/", "-", $cat_filtered);
         $cat_filtered = str_replace(',', ' ', $cat_filtered);
+        
 		return $cat_filtered;
 	}
     

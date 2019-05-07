@@ -8,7 +8,7 @@ class Premium_Countdown extends Widget_Base {
 	}
 
 	public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Countdown';
+        return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Countdown', 'premium-addons-for-elementor') );
 	}
 
 	public function get_icon() {
@@ -92,13 +92,7 @@ class Premium_Countdown extends Widget_Base {
 					'M'     => __( 'Minutes', 'premium-addons-for-elementor' ),
 					'S' 	=> __( 'Second', 'premium-addons-for-elementor' ),
 				],
-				'default' 		=> [
-					'O',
-                    'D',
-					'H',
-					'M',
-					'S'
-				],
+				'default' 		=> [ 'O', 'D', 'H', 'M', 'S' ],
 				'multiple'		=> true,
 				'separator'		=> 'after'
 		  	]

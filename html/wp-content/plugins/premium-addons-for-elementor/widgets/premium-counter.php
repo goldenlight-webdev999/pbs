@@ -10,7 +10,7 @@ class Premium_Counter extends Widget_Base {
 	}
 
 	public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Counter';
+        return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Counter', 'premium-addons-for-elementor') );
 	}
 
 	public function get_icon() {
@@ -68,7 +68,7 @@ class Premium_Counter extends Widget_Base {
 				'label'			=> __( 'Thousands Separator', 'premium-addons-for-elementor' ),
 				'type'			=> Controls_Manager::TEXT,
                 'dynamic'       => [ 'active' => true ],
-				'description'	=> __( 'Separate coverts 125000 into 125,000', 'premium-addons-for-elementor' ),
+				'description'	=> __( 'Separator converts 125000 into 125,000', 'premium-addons-for-elementor' ),
 				'default'		=> ','
 			]
 		);
@@ -174,6 +174,7 @@ class Premium_Counter extends Widget_Base {
             [
                 'label'         => __('Animations', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::ANIMATION,
+                'render_type'   => 'template'
             ]
             );
         
@@ -542,13 +543,14 @@ class Premium_Counter extends Widget_Base {
     ?>
 
         <div class="premium-counter-icon <?php echo $direction; ?>">
-            <span data-animation="<?php echo $animation; ?>" class="icon<?php echo $flex_width; ?><?php echo $icon_style; ?>"><?php echo $icon_image; ?></span>
+            <span class="icon<?php echo $flex_width; ?><?php echo $icon_style; ?>" data-animation="<?php echo $animation; ?>"><?php echo $icon_image; ?></span>
         </div>
 
     <?php
     }
 
 	protected function render() {
+        
 		$settings = $this->get_settings_for_display();
 
         $this->add_inline_editing_attributes('premium_counter_title');
@@ -557,12 +559,12 @@ class Premium_Counter extends Widget_Base {
 //        
 //        $decimal = $settings['premium_counter_d_separator'];
 		
-        if( $settings['premium_counter_icon_image'] == 'icon' ) {
-			$icon_image = '<i class="' . $settings['premium_counter_icon'] .'"></i>';
-		} else {
-            $alt = esc_attr( Control_Media::get_image_alt( $settings['premium_counter_image_upload'] ) );
-			$icon_image = '<img class="custom-image" src="'.$settings['premium_counter_image_upload']['url'] . '" alt="' . $alt . '">';
-		}
+//        if( $settings['premium_counter_icon_image'] == 'icon' ) {
+//			$icon_image = '<i class="' . $settings['premium_counter_icon'] .'"></i>';
+//		} else {
+//            $alt = esc_attr( Control_Media::get_image_alt( $settings['premium_counter_image_upload'] ) );
+//			$icon_image = '<img class="custom-image" src="'.$settings['premium_counter_image_upload']['url'] . '" alt="' . $alt . '">';
+//		}
 
 		$position = $settings['premium_counter_icon_position'];
 		
@@ -602,13 +604,13 @@ class Premium_Counter extends Widget_Base {
 
         <div <?php echo $this->get_render_attribute_string('counter'); ?>>
             <?php if( $position == 'right' ) {
-                $this->get_counter_content($settings, $position);
-                if( ! empty( $settings['premium_counter_icon'] ) || !empty( $settings['premium_counter_image_upload'] ) ) {
+                $this->get_counter_content( $settings, $position );
+                if( ! empty( $settings['premium_counter_icon'] ) || ! empty( $settings['premium_counter_image_upload']['url'] ) ) {
                     $this->get_counter_icon($settings, $position);
                 }
             
             } else { 
-                if( !empty( $settings['premium_counter_icon'] ) || !empty( $settings['premium_counter_image_upload'] ) ) {
+                if( ! empty( $settings['premium_counter_icon'] ) || ! empty( $settings['premium_counter_image_upload']['url'] ) ) {
                     $this->get_counter_icon($settings, $left);
                 } 
                 $this->get_counter_content($settings, $left);
@@ -620,4 +622,121 @@ class Premium_Counter extends Widget_Base {
 
 		<?php
 	}
+    
+    protected function _content_template() {
+        ?>
+        <#
+            
+            var iconImage,
+                position,
+                center,
+                left;
+                
+        
+            view.addInlineEditingAttributes('title');
+            
+            position = settings.premium_counter_icon_position;
+
+            center = 'top' === position ? ' center' : '';
+
+            left = 'left' === center ? ' left' : '';
+
+            var delimiter = '' === settings.premium_counter_t_separator ? ',' : settings.premium_counter_t_separator,
+                round     = '' === settings.premium_counter_d_after ? 0 : settings.premium_counter_d_after;
+            
+            view.addRenderAttribute( 'counter', 'class', [ 'premium-counter', 'premium-counter-area' + center ] );
+            view.addRenderAttribute( 'counter', 'data-duration', settings.premium_counter_speed * 1000 );
+            view.addRenderAttribute( 'counter', 'data-to-value', settings.premium_counter_end_value );
+            view.addRenderAttribute( 'counter', 'data-delimiter', delimiter );
+            view.addRenderAttribute( 'counter', 'data-rounding', round );
+            
+            function getCounterContent( direction ) {
+            
+                var startValue = settings.premium_counter_start_value;
+                
+                view.addRenderAttribute( 'counter_wrap', 'class', [ 'premium-init-wrapper', direction ] );
+                
+                view.addRenderAttribute( 'value', 'id', 'counter-' + view.getID() );
+                
+                view.addRenderAttribute( 'value', 'class', 'premium-counter-init' );
+                
+            #>
+            
+                <div {{{ view.getRenderAttributeString('counter_wrap') }}}>
+
+                    <# if ( '' !== settings.premium_counter_preffix ) { #>
+                        <span id="prefix" class="counter-su-pre">{{{ settings.premium_counter_preffix }}}</span>
+                    <# } #>
+
+                    <span {{{ view.getRenderAttributeString('value') }}}>{{{ startValue }}}</span>
+
+                    <# if ( '' !== settings.premium_counter_suffix ) { #>
+                        <span id="suffix" class="counter-su-pre">{{{ settings.premium_counter_suffix }}}</span>
+                    <# } #>
+
+                    <# if ( '' !== settings.premium_counter_title ) { #>
+                        <h4 class="premium-counter-title">
+                            <div {{{ view.getRenderAttributeString('title') }}}>
+                                {{{ settings.premium_counter_title }}}
+                            </div>
+                        </h4>
+                    <# } #>
+                </div>
+            
+            <#
+            }
+            
+            function getCounterIcon( direction ) {
+            
+                var iconStyle = 'simple' !== settings.premium_counter_icon_style ? ' icon-bg ' + settings.premium_counter_icon_style : '',
+                    animation = settings.premium_counter_icon_animation,
+                    flexWidth = '';
+                
+                if( 'custom' === settings.premium_counter_icon_image && 'simple' ===  settings.premium_counter_icon_style ) {
+                    flexWidth = ' flex-width ';
+                }
+                
+                view.addRenderAttribute( 'icon_wrap', 'class', [ 'premium-counter-icon', direction ] );
+                
+                var iconClass = 'icon' + flexWidth + iconStyle;
+            
+            #>
+
+            <div {{{ view.getRenderAttributeString('icon_wrap') }}}>
+                <span data-animation="{{ animation }}" class="{{ iconClass }}">
+                    <# if( 'icon' === settings.premium_counter_icon_image ) { #> 
+                        <i class="{{ settings.premium_counter_icon }}"></i>
+                    <# } else { #>
+                        <img class="custom-image" src="{{ settings.premium_counter_image_upload.url }}">
+                    <# } #>
+                </span>
+            </div>
+            
+            <#
+            }
+           
+        #>
+        
+        <div {{{ view.getRenderAttributeString('counter') }}}>
+            <# if( 'right' === position  ) {
+            
+                getCounterContent( position );
+                
+                if( '' !== settings.premium_counter_icon || '' !== settings.premium_counter_image_upload.url ) {
+                    getCounterIcon( position );
+                }
+            
+            } else {
+            
+                if( '' !== settings.premium_counter_icon || '' !== settings.premium_counter_image_upload.url ) {
+                    getCounterIcon( position );
+                }
+                
+                getCounterContent( position );
+            
+            } #>
+        </div>
+        
+        <?php
+    }
 }

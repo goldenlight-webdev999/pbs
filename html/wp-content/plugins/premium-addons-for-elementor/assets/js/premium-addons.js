@@ -492,16 +492,16 @@
 
   /****** Premium Banner Handler ******/
   var PremiumBannerHandler = function($scope, $) {
-    var bannerElement = $scope.find(".premium_banner");
-    bannerElement.find(".premium_addons-banner-ib").hover(
+    var bannerElement = $scope.find(".premium-banner");
+    bannerElement.find(".premium-banner-ib").hover(
       function() {
         $(this)
-          .find(".premium_addons-banner-ib-img")
+          .find(".premium-banner-ib-img")
           .addClass("active");
       },
       function() {
         $(this)
-          .find(".premium_addons-banner-ib-img")
+          .find(".premium-banner-ib-img")
           .removeClass("active");
       }
     );
@@ -583,24 +583,24 @@
         transformOffset  = null;
         
         function startTransform() {
-            imageScroll.css("transform", (direction == "vertical" ? "translateY" : "translateX") + "( -" +  transformOffset + "px)");
+            imageScroll.css("transform", (direction === "vertical" ? "translateY" : "translateX") + "( -" +  transformOffset + "px)");
         }
         
         function endTransform() {
-            imageScroll.css("transform", (direction == 'vertical' ? "translateY" : "translateX") + "(0px)");
+            imageScroll.css("transform", (direction === 'vertical' ? "translateY" : "translateX") + "(0px)");
         }
         
         function setTransform() {
-            if( direction == "vertical" ) {
+            if( direction === "vertical" ) {
                 transformOffset = imageScroll.height() - scrollElement.height();
             } else {
                 transformOffset = imageScroll.width() - scrollElement.width();
             }
         }
         
-        if( dataElement["trigger"] == "scroll" ) {
+        if( dataElement["trigger"] === "scroll" ) {
             scrollElement.addClass("premium-container-scroll");
-            if ( direction == "vertical" ) {
+            if ( direction === "vertical" ) {
                 scrollVertical.addClass("premium-image-scroll-ver");
             } else {
                 scrollElement.imagesLoaded(function() {
@@ -615,7 +615,7 @@
                     startTransform();
                 });
             }
-            if ( direction == "vertical" ) {
+            if ( direction === "vertical" ) {
                 scrollVertical.removeClass("premium-image-scroll-ver");
             }
             scrollElement.mouseenter(function() {

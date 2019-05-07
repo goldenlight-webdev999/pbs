@@ -3,10 +3,15 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class PA_Rollback {
+    
 	protected $package_url;
+    
 	protected $version;
+    
 	protected $plugin_name;
+    
 	protected $plugin_slug;
+    
 	public function __construct( $args = [] ) {
 		foreach ( $args as $key => $value ) {
 			$this->{$key} = $value;
@@ -14,7 +19,8 @@ class PA_Rollback {
 	}
 
 	private function print_inline_style() {
-		?>
+        ?>
+
 		<style>
 			.wrap {
 				overflow: hidden;
@@ -34,28 +40,37 @@ class PA_Rollback {
 				margin: auto auto 50px;
 			}
 		</style>
+        
 		<?php
 	}
 
 	protected function apply_package() {
+        
 		$update_plugins = get_site_transient( 'update_plugins' );
+        
 		if ( ! is_object( $update_plugins ) ) {
             
 			$update_plugins = new \stdClass();
 		}
 
 		$plugin_info = new \stdClass();
+        
 		$plugin_info->new_version = $this->version;
+        
 		$plugin_info->slug = $this->plugin_slug;
+        
 		$plugin_info->package = $this->package_url;
+        
 		$plugin_info->url = 'https://premiumaddons.com/';
-
+        
 		$update_plugins->response[ $this->plugin_name ] = $plugin_info;
 
 		set_site_transient( 'update_plugins', $update_plugins );
+        
 	}
 
 	protected function upgrade() {
+        
 		require_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
 
 		$logo_url = PREMIUM_ADDONS_URL . 'admin/images/premium-addons-logo.png';
@@ -70,11 +85,16 @@ class PA_Rollback {
 		$this->print_inline_style();
 
 		$upgrader = new \Plugin_Upgrader( new \Plugin_Upgrader_Skin( $upgrader_args ) );
+        
 		$upgrader->upgrade( $this->plugin_name );
+        
 	}
 
 	public function run() {
+        
 		$this->apply_package();
+        
 		$this->upgrade();
+        
 	}
 }

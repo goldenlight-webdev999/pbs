@@ -10,7 +10,7 @@ class Premium_Testimonials extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Testimonial';
+		return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Testimonial', 'premium-addons-for-elementor') );
 	}
 
     public function get_icon() {
@@ -189,7 +189,7 @@ class Premium_Testimonials extends Widget_Base {
                     'label'             => __('Testimonial Content', 'premium-addons-for-elementor'),
                     'type'              => Controls_Manager::WYSIWYG,
                     'dynamic'           => [ 'active' => true ],
-                    'default'           => __('Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus.','premium-elementor'),
+                    'default'           => __('Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus.','premium-addons-for-elementor'),
                     'label_block'       => true,
                     ]
                 );

@@ -9,7 +9,7 @@ class Premium_Fancytext extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Fancy Text';
+        return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Fancy Text', 'premium-addons-for-elementor') );
 	}
 
     public function get_icon() {
@@ -132,9 +132,9 @@ class Premium_Fancytext extends Widget_Base {
                     'label'         => __('Effect', 'premium-addons-for-elementor'),
                     'type'          => Controls_Manager::SELECT,
                     'options'       => [
-                        'typing'=> __('Typing'),
-                        'slide' => __('Slide Up'),
-                        ],
+                        'typing'=> __('Typing', 'premium-addons-for-elementor'),
+                        'slide' => __('Slide Up', 'premium-addons-for-elementor')
+                    ],
                     'default'       => 'typing',
                     'label_block'   => true,
                     ]
@@ -466,7 +466,7 @@ class Premium_Fancytext extends Widget_Base {
     }
 
     protected function render( ) {
-        // get our input from the widget settings.
+        
         $settings = $this->get_settings_for_display();
         $this->add_inline_editing_attributes('premium_fancy_prefix_text');
         $this->add_inline_editing_attributes('premium_fancy_suffix_text');

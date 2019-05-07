@@ -38,9 +38,11 @@ class Pro_Settings {
     }
     
 
-	public function change_admin_menu_name(){
+	public function change_admin_menu_name() {
+        
         global $submenu;
-        if(isset($submenu['premium-addons'])){
+        
+        if( isset($submenu['premium-addons'] ) ) {
             $submenu['premium-addons'][0][0] = __( 'Widgets Settings', 'premium-addons-for-elementor' );
         }
     }

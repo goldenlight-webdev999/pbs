@@ -10,7 +10,7 @@ class Premium_Person extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Person';
+		return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Person', 'premium-addons-for-elementor') );
 	}
 
     public function get_icon() {
@@ -132,7 +132,7 @@ class Premium_Person extends Widget_Base {
                     'label'         => __('Name', 'premium-addons-for-elementor'),
                     'type'          => Controls_Manager::TEXT,
                     'dynamic'       => [ 'active' => true ],
-                    'default'       => __('John Frank', 'premium-addons-for-elementor'),
+                    'default'       => 'John Frank',
                     'label_block'   => true,
                     ]
                 );

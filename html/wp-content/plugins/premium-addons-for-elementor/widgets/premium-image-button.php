@@ -9,7 +9,7 @@ class Premium_Image_Button extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Image Button';
+		return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Image Button', 'premium-addons-for-elementor') );
 	}
     
     public function getTemplateInstance() {
@@ -28,14 +28,12 @@ class Premium_Image_Button extends Widget_Base {
     // This will controls the animation, colors and background, dimensions etc
     protected function _register_controls() {
 
-        /*Start Button Content Section */
         $this->start_controls_section('premium_image_button_general_section',
                 [
                     'label'         => __('Button', 'premium-addons-for-elementor'),
                     ]
                 );
         
-        /*Button Text*/ 
         $this->add_control('premium_image_button_text',
                 [
                     'label'         => __('Text', 'premium-addons-for-elementor'),
@@ -90,7 +88,6 @@ class Premium_Image_Button extends Widget_Base {
                 ]
                 );
         
-        /*Button Hover Effect*/
         $this->add_control('premium_image_button_hover_effect', 
                 [
                     'label'         => __('Hover Effect', 'premium-addons-for-elementor'),
@@ -177,7 +174,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*Button Icon Switcher*/
         $this->add_control('premium_image_button_icon_switcher',
                 [
                     'label'         => __('Icon', 'premium-addons-for-elementor'),
@@ -189,7 +185,6 @@ class Premium_Image_Button extends Widget_Base {
                 ]
                 );
 
-        /*Button Icon Selection*/ 
         $this->add_control('premium_image_button_icon_selection',
                 [
                     'label'         => __('Icon', 'premium-addons-for-elementor'),
@@ -297,7 +292,6 @@ class Premium_Image_Button extends Widget_Base {
                 ]
                 );
         
-        /*Button Size*/
         $this->add_control('premium_image_button_size', 
                 [
                     'label'         => __('Size', 'premium-addons-for-elementor'),
@@ -314,7 +308,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*Button Align*/
         $this->add_responsive_control('premium_image_button_align',
 			[
 				'label'             => __( 'Alignment', 'premium-addons-for-elementor' ),
@@ -359,10 +352,8 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*End Image Button General Section*/
         $this->end_controls_section();
 
-        /*Start Styling Section*/
         $this->start_controls_section('premium_image_button_style_section',
             [
                 'label'             => __('Button', 'premium-addons-for-elementor'),
@@ -427,7 +418,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*Button Border*/
         $this->add_group_control(
             Group_Control_Border::get_type(), 
                 [
@@ -436,7 +426,6 @@ class Premium_Image_Button extends Widget_Base {
                 ]
                 );
         
-        /*Button Border Radius*/
         $this->add_control('premium_image_button_border_radius_normal',
                 [
                     'label'         => __('Border Radius', 'premium-addons-for-elementor'),
@@ -448,7 +437,6 @@ class Premium_Image_Button extends Widget_Base {
                 ]
                 );
         
-        /*Icon Shadow*/
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(),
                 [
@@ -463,7 +451,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*Text Shadow*/
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(),
                 [
@@ -473,7 +460,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*Button Shadow*/
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
                 [
@@ -483,7 +469,6 @@ class Premium_Image_Button extends Widget_Base {
                 ]
                 );
         
-        /*Button Margin*/
         $this->add_responsive_control('premium_image_button_margin_normal',
                 [
                     'label'         => __('Margin', 'premium-addons-for-elementor'),
@@ -494,7 +479,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 ]);
         
-        /*Button Padding*/
         $this->add_responsive_control('premium_image_button_padding_normal',
                 [
                     'label'         => __('Padding', 'premium-addons-for-elementor'),
@@ -604,7 +588,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*Overlay Color*/
         $this->add_control('premium_image_button_overlay_color',
                 [
                     'label'         => __('Overlay Color', 'premium-addons-for-elementor'),
@@ -622,7 +605,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*Button Border*/
         $this->add_group_control(
             Group_Control_Border::get_type(), 
                 [
@@ -631,7 +613,6 @@ class Premium_Image_Button extends Widget_Base {
                 ]
                 );
         
-        /*Button Border Radius*/
         $this->add_control('premium_image_button_border_radius_hover',
                 [
                     'label'         => __('Border Radius', 'premium-addons-for-elementor'),
@@ -643,7 +624,6 @@ class Premium_Image_Button extends Widget_Base {
                 ]
                 );
         
-        /*Icon Shadow*/
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(),
                 [
@@ -669,7 +649,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*Text Shadow*/
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(),
                 [
@@ -682,7 +661,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 );
         
-        /*Button Shadow*/
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
                 [
@@ -692,8 +670,6 @@ class Premium_Image_Button extends Widget_Base {
                 ]
                 );
         
-        
-        /*Button Margin*/
         $this->add_responsive_control('premium_image_button_margin_hover',
                 [
                     'label'         => __('Margin', 'premium-addons-for-elementor'),
@@ -704,7 +680,6 @@ class Premium_Image_Button extends Widget_Base {
                     ]
                 ]);
         
-        /*Button Padding*/
         $this->add_responsive_control('premium_image_button_padding_hover',
                 [
                     'label'         => __('Padding', 'premium-addons-for-elementor'),
@@ -719,12 +694,11 @@ class Premium_Image_Button extends Widget_Base {
         
         $this->end_controls_tabs();
 
-        /*End Labels Settings Section*/
         $this->end_controls_section();
     }
 
     protected function render() {
-        // get our input from the widget settings.
+        
         $settings = $this->get_settings_for_display();
         
         $this->add_inline_editing_attributes( 'premium_image_button_text' );

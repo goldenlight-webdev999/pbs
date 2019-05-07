@@ -4,7 +4,8 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
 class Premium_Modalbox extends Widget_Base {
-    public function getTemplateInstance(){
+
+    public function getTemplateInstance() {
         return $this->templateInstance = premium_Template_Tags::getInstance();
     }
     
@@ -17,7 +18,7 @@ class Premium_Modalbox extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Modal Box';
+		return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Modal Box', 'premium-addons-for-elementor') );
 	}
 
     public function get_icon() {
@@ -128,7 +129,7 @@ class Premium_Modalbox extends Widget_Base {
                     'label'         => __('Title', 'premium-addons-for-elementor'),
                     'type'          => Controls_Manager::TEXT,
                     'dynamic'       => [ 'active' => true ],
-                    'description'   => __('Provide the modal box with a title', 'premium-addons-for-elementor'),
+                    'description'   => __('Add a title for the modal box', 'premium-addons-for-elementor'),
                     'default'       => 'Modal Box Title',
                     'condition'     => [
                         'premium_modal_box_header_switcher' => 'yes'
@@ -333,9 +334,7 @@ class Premium_Modalbox extends Widget_Base {
                     'separator'     => 'after',
                 ]
             );
-        }
         
-        if( ! $this->check_rtl() ) {
         $this->add_control('premium_modal_box_icon_after_spacing',
                 [
                     'label'         => __('Icon Spacing', 'premium-addons-for-elementor'),
@@ -356,7 +355,7 @@ class Premium_Modalbox extends Widget_Base {
             );
         }
         
-        if( $this->check_rtl() ){
+        if( $this->check_rtl() ) {
             $this->add_control('premium_modal_box_icon_rtl_before_spacing',
                     [
                         'label'         => __('Icon Spacing', 'premium-addons-for-elementor'),
@@ -375,9 +374,7 @@ class Premium_Modalbox extends Widget_Base {
                         'separator'     => 'after',
                     ]
                 );
-            }
         
-        if( $this->check_rtl() ){
             $this->add_control('premium_modal_box_icon_rtl_after_spacing',
                     [
                         'label'         => __('Icon Spacing', 'premium-addons-for-elementor'),
@@ -625,7 +622,7 @@ class Premium_Modalbox extends Widget_Base {
                     'name'          => 'selector_border',
                     'selector'      => '{{WRAPPER}} .premium-modal-box-button-selector,{{WRAPPER}} .premium-modal-box-text-selector, {{WRAPPER}} .premium-modal-box-img-selector',
                     'condition'     => [
-                        'premium_modal_box_display_on'  => ['button', 'text','image'],
+                        'premium_modal_box_display_on'  => [ 'button', 'text','image' ],
                         ]
                 ]
                 );
@@ -643,7 +640,7 @@ class Premium_Modalbox extends Widget_Base {
                         '{{WRAPPER}} .premium-modal-box-button-selector, {{WRAPPER}} .premium-modal-box-text-selector, {{WRAPPER}} .premium-modal-box-img-selector'     => 'border-radius:{{SIZE}}{{UNIT}};',
                     ],
                     'condition'     => [
-                        'premium_modal_box_display_on'  => ['button', 'text', 'image'],
+                        'premium_modal_box_display_on'  => [ 'button', 'text', 'image' ],
                         ],
                     'separator'     => 'after',
                     ]
@@ -666,7 +663,7 @@ class Premium_Modalbox extends Widget_Base {
                         '{{WRAPPER}} .premium-modal-box-button-selector, {{WRAPPER}} .premium-modal-box-text-selector' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                         ],
                     'condition'     => [
-                            'premium_modal_box_display_on'  => ['button', 'text'],
+                            'premium_modal_box_display_on'  => [ 'button', 'text' ],
                         ]
                     ]
                 );
@@ -679,7 +676,7 @@ class Premium_Modalbox extends Widget_Base {
                     'name'          => 'premium_modal_box_selector_box_shadow',
                     'selector'      => '{{WRAPPER}} .premium-modal-box-button-selector, {{WRAPPER}} .premium-modal-box-img-selector',
                     'condition'     => [
-                        'premium_modal_box_display_on'  => ['button', 'image'],
+                        'premium_modal_box_display_on'  => [ 'button', 'image' ],
                         ]
                 ]
                 );
@@ -702,7 +699,7 @@ class Premium_Modalbox extends Widget_Base {
                 [
                     'label'         => __('Hover', 'premium-addons-for-elementor'),
                     'condition'     => [
-                        'premium_modal_box_display_on'  => ['button','text','image'],
+                        'premium_modal_box_display_on'  => [ 'button','text','image' ],
                         ]
                 ]
                 );
@@ -729,7 +726,7 @@ class Premium_Modalbox extends Widget_Base {
                     'selector'      => '{{WRAPPER}} .premium-modal-box-button-selector:hover,
                     {{WRAPPER}} .premium-modal-box-text-selector:hover, {{WRAPPER}} .premium-modal-box-img-selector:hover',
                     'condition'     => [
-                        'premium_modal_box_display_on'  => ['button', 'text', 'image'],
+                        'premium_modal_box_display_on'  => [ 'button', 'text', 'image' ],
                         ]
                 ]
                 );
@@ -744,7 +741,7 @@ class Premium_Modalbox extends Widget_Base {
                         '{{WRAPPER}} .premium-modal-box-button-selector:hover,{{WRAPPER}} .premium-modal-box-text-selector:hover, {{WRAPPER}} .premium-modal-box-img-selector:hover'     => 'border-radius:{{SIZE}}{{UNIT}};',
                     ],
                     'condition'     => [
-                        'premium_modal_box_display_on'  => ['button', 'text', 'image'],
+                        'premium_modal_box_display_on'  => [ 'button', 'text', 'image' ],
                         ]
                 ]
                 );
@@ -757,7 +754,7 @@ class Premium_Modalbox extends Widget_Base {
                     'name'          => 'premium_modal_box_selector_box_shadow_hover',
                     'selector'      => '{{WRAPPER}} .premium-modal-box-button-selector:hover, {{WRAPPER}} .premium-modal-box-text-selector:hover, {{WRAPPER}} .premium-modal-box-img-selector:hover',
                     'condition'     => [
-                        'premium_modal_box_display_on'  => ['button', 'text', 'image'],
+                        'premium_modal_box_display_on'  => [ 'button', 'text', 'image' ],
                         ]
                 ]
                 );
@@ -1282,8 +1279,9 @@ class Premium_Modalbox extends Widget_Base {
     }
 
     protected function render() {
-        // get our input from the widget settings.
+        
         $settings = $this->get_settings_for_display();
+        
         $this->add_inline_editing_attributes('premium_modal_box_selector_text');
       
         $button_icon = $settings['premium_modal_box_button_icon_selection'];

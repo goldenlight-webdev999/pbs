@@ -4,7 +4,7 @@ namespace PremiumAddons;
 
 if( ! defined( 'ABSPATH' ) ) exit(); // Exit if accessed directly
 
-class PA_admin_settings {
+class PA_Elements_Settings {
     
     protected $page_slug = 'premium-addons';
 
@@ -20,9 +20,9 @@ class PA_admin_settings {
         
         add_action( 'admin_menu', array( $this,'pa_admin_menu') );
         
-        add_action('admin_enqueue_scripts', array( $this, 'pa_admin_page_scripts' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'pa_admin_page_scripts' ) );
         
-        add_action( 'wp_ajax_pa_save_admin_addons_settings', array( $this, 'pa_save_settings_with_ajax' ) );
+        add_action( 'wp_ajax_pa_save_admin_addons_settings', array( $this, 'pa_save_settings' ) );
         
         add_action('admin_enqueue_scripts',array( $this, 'localize_js_script' ) );
         
@@ -61,21 +61,56 @@ class PA_admin_settings {
     }
 
     public function pa_admin_page_scripts () {
+        
         wp_enqueue_style( 'pa_admin_icon', PREMIUM_ADDONS_URL .'admin/assets/pa-elements-font/css/pafont.css' );
+        
         $current_screen = get_current_screen();
-        wp_enqueue_style( 'pa-notice-css', PREMIUM_ADDONS_URL.'admin/assets/notice.css' );
-        if( strpos($current_screen->id , $this->page_slug) !== false ){
-            wp_enqueue_style( 'pa-admin-css', PREMIUM_ADDONS_URL.'admin/assets/admin.css' );
+        
+        wp_enqueue_style( 'pa-notice-css', PREMIUM_ADDONS_URL.'admin/assets/css/notice.css' );
+        
+        if( strpos($current_screen->id , $this->page_slug) !== false ) {
             
-            wp_enqueue_style( 'premium-addons-sweetalert-style', PREMIUM_ADDONS_URL.'admin/assets/js/sweetalert2/sweetalert2.min.css' );
+            wp_enqueue_style(
+                'pa-admin-css',
+                PREMIUM_ADDONS_URL.'admin/assets/css/admin.css'
+            );
             
-            wp_enqueue_script('pa-admin-js', PREMIUM_ADDONS_URL .'admin/assets/admin.js' , array('jquery'), PREMIUM_ADDONS_VERSION , true );
+            wp_enqueue_style(
+                'pa-sweetalert-style',
+                PREMIUM_ADDONS_URL . 'admin/assets/js/sweetalert2/sweetalert2.min.css'
+            );
             
-            wp_enqueue_script('pa-admin-dialog', PREMIUM_ADDONS_URL . 'admin/assets/js/dialog/dialog.js',array('jquery-ui-position'),PREMIUM_ADDONS_VERSION,true);
+            wp_enqueue_script(
+                'pa-admin-js',
+                PREMIUM_ADDONS_URL .'admin/assets/js/admin.js',
+                array('jquery'),
+                PREMIUM_ADDONS_VERSION,
+                true
+            );
             
-            wp_enqueue_script('pa-sweetalert-core', PREMIUM_ADDONS_URL . 'admin/assets/js/sweetalert2/core.js', array( 'jquery' ), PREMIUM_ADDONS_VERSION, true );
+            wp_enqueue_script(
+                'pa-admin-dialog',
+                PREMIUM_ADDONS_URL . 'admin/assets/js/dialog/dialog.js',
+                array('jquery-ui-position'),
+                PREMIUM_ADDONS_VERSION,
+                true
+            );
             
-			wp_enqueue_script( 'pa-sweetalert', PREMIUM_ADDONS_URL . 'admin/assets/js/sweetalert2/sweetalert2.min.js', array( 'jquery', 'pa-sweetalert-core' ), PREMIUM_ADDONS_VERSION, true );
+            wp_enqueue_script(
+                'pa-sweetalert-core',
+                PREMIUM_ADDONS_URL . 'admin/assets/js/sweetalert2/core.js',
+                array('jquery'),
+                PREMIUM_ADDONS_VERSION,
+                true
+            );
+            
+			wp_enqueue_script(
+                'pa-sweetalert',
+                PREMIUM_ADDONS_URL . 'admin/assets/js/sweetalert2/sweetalert2.min.js',
+                array( 'jquery', 'pa-sweetalert-core' ),
+                PREMIUM_ADDONS_VERSION,
+                true
+            );
             
         }
     }
@@ -130,7 +165,7 @@ class PA_admin_settings {
             <div class="pa-header-wrapper">
                 <div class="pa-title-left">
                     <h1 class="pa-title-main"><?php echo Helper_Functions::name(); ?></h1>
-                    <h3 class="pa-title-sub"><?php echo sprintf(__('Thank you for using %s. This plugin has been developed by %s and we hope you enjoy using it.','premium-addons-for-elementor'), Helper_Functions::name(),Helper_Functions::author()); ?></h3>
+                    <h3 class="pa-title-sub"><?php echo sprintf(__('Thank you for using %s. This plugin has been developed by %s and we hope you enjoy using it.','premium-addons-for-elementor'), Helper_Functions::name(), Helper_Functions::author() ); ?></h3>
                 </div>
                 <?php if( ! Helper_Functions::is_show_logo()) : ?>
                 <div class="pa-title-right">
@@ -148,14 +183,14 @@ class PA_admin_settings {
                     <table class="pa-elements-table">
                         <tbody>
                             <tr>
-                                <th><?php echo sprintf("%s Banner",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Banner', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                         <input type="checkbox" id="premium-banner" name="premium-banner" <?php checked(1, $this->pa_get_settings['premium-banner'], true) ?>>
                                         <span class="slider round"></span>
                                 </label>
                                 </td>
-                                <th><?php echo sprintf("%s Blog",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Blog', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-blog" name="premium-blog" <?php checked(1, $this->pa_get_settings['premium-blog'], true) ?>>
@@ -164,16 +199,15 @@ class PA_admin_settings {
                                 </td>
                             </tr>
                             
-                            
                             <tr>
-                                <th><?php echo sprintf("%s Carousel",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Carousel', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-carousel" name="premium-carousel" <?php checked(1, $this->pa_get_settings['premium-carousel'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo sprintf("%s Countdown",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Countdown', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-countdown" name="premium-countdown" <?php checked(1, $this->pa_get_settings['premium-countdown'], true) ?>>
@@ -183,14 +217,14 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo sprintf("%s Counter",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Counter', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-counter" name="premium-counter" <?php checked(1, $this->pa_get_settings['premium-counter'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo sprintf("%s Dual Heading",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Dual Heading', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-dual-header" name="premium-dual-header" <?php checked(1, $this->pa_get_settings['premium-dual-header'], true) ?>>
@@ -200,14 +234,14 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo sprintf("%s Fancy Text",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Fancy Text', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-fancytext" name="premium-fancytext" <?php checked(1, $this->pa_get_settings['premium-fancytext'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo sprintf("%s Image Scroll",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Image Scroll', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-image-scroll" name="premium-image-scroll" <?php checked(1, $this->pa_get_settings['premium-image-scroll'], true) ?>>
@@ -219,7 +253,7 @@ class PA_admin_settings {
                             
                             <tr>
                                 
-                                <th><?php echo esc_html__('Premium Image Separator', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Image Separator', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-image-separator" name="premium-image-separator" <?php checked(1, $this->pa_get_settings['premium-image-separator'], true) ?>>
@@ -227,7 +261,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo sprintf("%s Maps",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Maps', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-maps" name="premium-maps" <?php checked(1, $this->pa_get_settings['premium-maps'], true) ?>>
@@ -238,14 +272,14 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo sprintf("%s Modal Box",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Modal Box', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-modalbox" name="premium-modalbox" <?php checked(1, $this->pa_get_settings['premium-modalbox'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo sprintf("%s Person",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Person', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-person" name="premium-person" <?php checked(1, $this->pa_get_settings['premium-person'], true) ?>>
@@ -257,31 +291,32 @@ class PA_admin_settings {
                             
                             <tr>
                                 
-                                <th><?php echo sprintf("%s Progress Bar",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Progress Bar', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-progressbar" name="premium-progressbar" <?php checked(1, $this->pa_get_settings['premium-progressbar'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo sprintf("%s Testimonials",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Testimonials', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-testimonials" name="premium-testimonials" <?php checked(1, $this->pa_get_settings['premium-testimonials'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
+
                             </tr>
                             
                             <tr>
-                                <th><?php echo sprintf("%s Title",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Title', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-title" name="premium-title" <?php checked(1, $this->pa_get_settings['premium-title'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo sprintf("%s Video Box",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Video Box', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-videobox" name="premium-videobox" <?php checked(1, $this->pa_get_settings['premium-videobox'], true) ?>>
@@ -291,14 +326,14 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo sprintf("%s Pricing Table",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Pricing Table', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-pricing-table" name="premium-pricing-table" <?php checked(1, $this->pa_get_settings['premium-pricing-table'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo sprintf("%s Button",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Button', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-button" name="premium-button" <?php checked(1, $this->pa_get_settings['premium-button'], true) ?>>
@@ -308,14 +343,14 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo sprintf("%s Contact Form7",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Contact Form7', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-contactform" name="premium-contactform" <?php checked(1, $this->pa_get_settings['premium-contactform'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo sprintf("%s Image Button",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Image Button', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-image-button" name="premium-image-button" <?php checked(1, $this->pa_get_settings['premium-image-button'], true) ?>>
@@ -326,14 +361,14 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo sprintf("%s Grid",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Grid', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-grid" name="premium-grid" <?php checked(1, $this->pa_get_settings['premium-grid'], true) ?>>
                                             <span class="slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo sprintf("%s Vertical Navigation",$prefix); ?></th>
+                                <th><?php echo sprintf( '%1$s %2$s', $prefix, __('Vertical Scroll', 'premium-addons-for-elementor') ); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-vscroll" name="premium-vscroll" <?php checked(1, $this->pa_get_settings['premium-vscroll'], true) ?>>
@@ -343,12 +378,12 @@ class PA_admin_settings {
                                 
                             </tr>
 
-                            <?php if( !defined('PREMIUM_PRO_ADDONS_VERSION') ) : ?> 
+                            <?php if( ! defined('PREMIUM_PRO_ADDONS_VERSION') ) : ?> 
                             <tr class="pa-sec-elems-tr"><th><h1>PRO Elements</h1></th></tr>
 
                             <tr>
                                 
-                                <th><?php echo esc_html__('Premium Alert Box', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Alert Box', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-notbar" name="premium-notbar">
@@ -356,7 +391,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium Icon Box', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Icon Box', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-iconbox" name="premium-iconbox">
@@ -368,8 +403,7 @@ class PA_admin_settings {
                             
                             <tr>
                                 
-                                
-                                <th><?php echo esc_html__('Premium Twitter Feed', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Twitter Feed', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-twitter-feed" name="premium-twitter-feed">
@@ -377,7 +411,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium Instagram Feed', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Instagram Feed', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-instagram-feed" name="premium-instagram-feed">
@@ -388,7 +422,7 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Flip Box', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Flip Box', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-flipbox" name="premium-flipbox">
@@ -396,7 +430,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium Unfold', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Unfold', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-unfold" name="premium-unfold">
@@ -407,7 +441,7 @@ class PA_admin_settings {
                             
                             <tr>
                                 
-                                <th><?php echo esc_html__('Premium Messenger Chat', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Messenger Chat', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-fb-chat" name="premium-fb-chat">
@@ -415,7 +449,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium Tabs', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Tabs', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-tabs" name="premium-tabs">
@@ -425,7 +459,7 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Chart', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Chart', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-charts" name="premium-charts">
@@ -433,7 +467,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium Preview Window', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Preview Window', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-prev-img" name="premium-prev-img">
@@ -443,7 +477,7 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Image Hotspots', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Image Hotspots', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-image-hotspots" name="premium-image-hotspots">
@@ -451,7 +485,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
 
-                                <th><?php echo esc_html__('Premium Facebook Reviews', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Facebook Reviews', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-facebook-reviews" name="premium-facebook-reviews">
@@ -461,7 +495,7 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Image Comparison', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Image Comparison', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-image-comparison" name="premium-image-comparison">
@@ -469,7 +503,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium Divider', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Divider', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-divider" name="premium-divider">
@@ -480,7 +514,7 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Magic Section', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Magic Section', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-magic-section" name="premium-magic-section">
@@ -488,7 +522,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium Google Reviews', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Google Reviews', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-google-reviews" name="premium-google-reviews">
@@ -498,7 +532,7 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Behance Feed', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Behance Feed', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-behance" name="premium-behance">
@@ -506,7 +540,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium Tables', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Tables', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-tables" name="premium-tables">
@@ -517,7 +551,7 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Image Layers', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Image Layers', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-img-layers" name="premium-img-layers">
@@ -525,7 +559,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium iHover', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium iHover', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-ihover" name="premium-ihover">
@@ -536,7 +570,7 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Content Switcher', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Content Switcher', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-content-toggle" name="premium-content-toggle">
@@ -544,7 +578,7 @@ class PA_admin_settings {
                                     </label>
                                 </td>
                                 
-                                <th><?php echo esc_html__('Premium Facebook Feed', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Facebook Feed', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-facebook-feed" name="premium-facebook-feed">
@@ -555,7 +589,7 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Whatsapp Chat', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Whatsapp Chat', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-whatsapp-chat" name="premium-whatsapp-chat">
@@ -566,14 +600,14 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Section Parallax', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Section Parallax', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-section-parallax" name="premium-section-parallax">
                                             <span class="pro-slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo esc_html__('Premium Section Particles', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Section Particles', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-section-particles" name="premium-section-particles">
@@ -583,14 +617,14 @@ class PA_admin_settings {
                             </tr>
                             
                             <tr>
-                                <th><?php echo esc_html__('Premium Section Animated Gradient', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Section Animated Gradient', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-section-gradient" name="premium-section-gradient">
                                             <span class="pro-slider round"></span>
                                     </label>
                                 </td>
-                                <th><?php echo esc_html__('Premium Section Ken Burns', 'premium-addons-for-elementor'); ?></th>
+                                <th><?php echo __('Premium Section Ken Burns', 'premium-addons-for-elementor'); ?></th>
                                 <td>
                                     <label class="switch">
                                             <input type="checkbox" id="premium-section-kenburns" name="premium-section-kenburns">
@@ -602,13 +636,13 @@ class PA_admin_settings {
                             <?php endif; ?> 
                         </tbody>
                     </table>
-                    <input type="submit" value="Save Settings" class="button pa-btn pa-save-button">
+                    <input type="submit" value="<?php echo __('Save Settings', 'premium-addons-for-elementor'); ?>" class="button pa-btn pa-save-button">
                     
                 </div>
                 <?php if( ! Helper_Functions::is_show_rate()) : ?>
-                <div>
-                    <p>Did you like Premium Addons for Elementor Plugin? Please <a href="https://wordpress.org/support/plugin/premium-addons-for-elementor/reviews/#new-post" target="_blank">Click Here to Rate it ★★★★★</a></p>
-                </div>
+                    <div>
+                        <p><?php echo __('Did you like Premium Addons for Elementor Plugin? Please ', 'premium-addons-for-elementor'); ?><a href="https://wordpress.org/support/plugin/premium-addons-for-elementor/reviews/#new-post" target="_blank"><?php echo __('Click Here to Rate it ★★★★★', 'premium-addons-for-elementor'); ?></a></p>
+                    </div>
                 <?php endif; ?>
             </div>
             </form>
@@ -630,7 +664,7 @@ class PA_admin_settings {
         return $enabled_keys;
     }
 
-    public function pa_save_settings_with_ajax() {
+    public function pa_save_settings() {
         
         if( isset( $_POST['fields'] ) ) {
             parse_str( $_POST['fields'], $settings );

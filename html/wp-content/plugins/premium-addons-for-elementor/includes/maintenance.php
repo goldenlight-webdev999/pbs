@@ -1,14 +1,18 @@
 <?php
 
-if( !defined( 'ABSPATH' ) ) exit; //Exit if accessed directly
+if( ! defined( 'ABSPATH' ) ) exit; //Exit if accessed directly
 
 /**
-* Fire the rollback function
-* @since 1.0
+ *
+ *  Fire the rollback function
+ * 
 */
 function post_premium_addons_rollback() {
+    
     check_admin_referer( 'premium_addons_rollback' );
+    
     $plugin_slug = basename( PREMIUM_ADDONS_FILE, '.php' );
+    
     $pa_rollback = new PA_Rollback(
         [
             'version' => PREMIUM_ADDONS_STABLE_VERSION,

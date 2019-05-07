@@ -21,7 +21,7 @@ class Premium_Image_Scroll extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Image Scroll';
+		return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Image Scroll', 'premium-addons-for-elementor') );
     }
     
     public function is_reload_preview_required() {

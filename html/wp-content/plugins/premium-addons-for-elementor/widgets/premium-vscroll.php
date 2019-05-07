@@ -15,7 +15,7 @@ class Premium_Vscroll extends Widget_Base {
     }
      
     public function get_title() {
-        return \PremiumAddons\Helper_Functions::get_prefix() . ' Vertical Scroll';
+        return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Vertical Scroll', 'premium-addons-for-elementor') );
     }
     
     public function get_icon() {
@@ -275,6 +275,17 @@ class Premium_Vscroll extends Widget_Base {
                 'label'         => __('Full Section Scroll', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SWITCHER,
                 'default'       => 'yes',
+            ]
+        );
+        
+        $this->add_control('full_section_touch',
+            [
+                'label'         => __('Full Section Scroll on Touch', 'premium-addons-for-elementor'),
+                'type'          => Controls_Manager::SWITCHER,
+                'default'       => 'yes',
+                'condition'     => [
+                    'full_section'  => 'yes'
+                ]
             ]
         );
         
@@ -736,7 +747,8 @@ class Premium_Vscroll extends Widget_Base {
             'dotsText'  => $dots_text,
             'dotsPos'   => $settings['navigation_dots_pos'],
             'dotsVPos'  => $settings['navigation_dots_v_pos'],
-            'fullSection'=> 'yes' == $settings['full_section'] ? true : false
+            'fullSection'=> 'yes' == $settings['full_section'] ? true : false,
+            'fullTouch'=> 'yes' == $settings['full_section_touch'] ? true : false
         ];
         
         $templates = 'templates' === $settings['content_type'] ? $settings['section_repeater'] : $settings['id_repeater'];

@@ -15,7 +15,7 @@ class Premium_Pricing_Table extends Widget_Base {
     }
 
     public function get_title() {
-        return \PremiumAddons\Helper_Functions::get_prefix() . ' Pricing Table';
+        return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Pricing Table', 'premium-addons-for-elementor') );
     }
 
     public function get_icon() {
@@ -30,7 +30,7 @@ class Premium_Pricing_Table extends Widget_Base {
     // Adding the controls fields for the premium pricing table
     // This will controls the animation, colors and background, dimensions etc
     protected function _register_controls() {
-        /*Title Content Section*/
+        
         $this->start_controls_section('premium_pricing_table_icon_section',
                 [
                     'label'         => __('Icon', 'premium-addons-for-elementor'),
@@ -73,22 +73,22 @@ class Premium_Pricing_Table extends Widget_Base {
         
         /*Header Tag*/
         $this->add_control('premium_pricing_table_title_size',
-                [
-                    'label'         => __('HTML Tag', 'premium-addons-for-elementor'),
-                    'description'   => __( 'Select HTML tag for the title', 'premium-addons-for-elementor' ),
-                    'type'          => Controls_Manager::SELECT,
-                    'default'       => 'h3',
-                    'options'       => [
-                        'h1'    => 'H1',
-                        'h2'    => 'H2',
-                        'h3'    => 'H3',
-                        'h4'    => 'H4',
-                        'h5'    => 'H5',
-                        'h6'    => 'H6',
-                        ],
-                    'label_block'   => true,
-                    ]
-                );
+            [
+                'label'         => __('HTML Tag', 'premium-addons-for-elementor'),
+                'description'   => __( 'Select HTML tag for the title', 'premium-addons-for-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'h3',
+                'options'       => [
+                    'h1'    => 'H1',
+                    'h2'    => 'H2',
+                    'h3'    => 'H3',
+                    'h4'    => 'H4',
+                    'h5'    => 'H5',
+                    'h6'    => 'H6',
+                    ],
+                'label_block'   => true,
+                ]
+            );
         
         $this->end_controls_section();
         
@@ -1826,11 +1826,15 @@ class Premium_Pricing_Table extends Widget_Base {
     }
 
     protected function render() {
-        // get our input from the widget settings.
+        
         $settings = $this->get_settings_for_display();
-        $this->add_inline_editing_attributes('premium_pricing_table_title_text');
-        $this->add_inline_editing_attributes('premium_pricing_table_description_text', 'advanced');
-        $this->add_inline_editing_attributes('premium_pricing_table_button_text');
+        
+        $this->add_inline_editing_attributes('title_text');
+        
+        $this->add_inline_editing_attributes('description_text', 'advanced');
+        
+        $this->add_inline_editing_attributes('button_text');
+        
         $title_tag = $settings['premium_pricing_table_title_size'];
         $link_type = $settings['premium_pricing_table_button_url_type'];
         $badge_position = 'premium-badge-' .  $settings['premium_pricing_table_badge_position'];
@@ -1851,7 +1855,7 @@ class Premium_Pricing_Table extends Widget_Base {
     <div class="premium-pricing-icon-container"><i class="<?php echo esc_attr( $settings['premium_pricing_table_icon_selection'] ); ?>"></i></div>
         <?php endif; ?>
     <?php if($settings['premium_pricing_table_title_switcher'] == 'yes') : ?>
-    <<?php echo $title_tag;?> class="premium-pricing-table-title"><span <?php echo $this->get_render_attribute_string('premium_pricing_table_title_text'); ?>><?php echo $settings['premium_pricing_table_title_text'];?></span></<?php echo $title_tag;?>><?php endif; ?>
+    <<?php echo $title_tag;?> class="premium-pricing-table-title"><span <?php echo $this->get_render_attribute_string('title_text'); ?>><?php echo $settings['premium_pricing_table_title_text'];?></span></<?php echo $title_tag;?>><?php endif; ?>
     <?php if($settings['premium_pricing_table_price_switcher'] == 'yes') : ?>
     <div class="premium-pricing-price-container">
         <strike class="premium-pricing-slashed-price-value">
@@ -1881,7 +1885,7 @@ class Premium_Pricing_Table extends Widget_Base {
     <?php endif; ?>
     <?php if($settings['premium_pricing_table_description_switcher'] == 'yes') : ?>
     <div class="premium-pricing-description-container">
-        <div <?php echo $this->get_render_attribute_string('premium_pricing_table_description_text'); ?>>
+        <div <?php echo $this->get_render_attribute_string('description_text'); ?>>
         <?php echo $settings['premium_pricing_table_description_text']; ?>
         </div>
     </div>
@@ -1889,7 +1893,7 @@ class Premium_Pricing_Table extends Widget_Base {
     <?php if($settings['premium_pricing_table_button_switcher'] == 'yes') : ?>
     <div class="premium-pricing-button-container">
         <a class="premium-pricing-price-button" target="_<?php echo esc_attr( $settings['premium_pricing_table_button_link_target'] ); ?>" href="<?php echo esc_url( $link_url ); ?>">
-            <span <?php echo $this->get_render_attribute_string('premium_pricing_table_button_text'); ?>><?php echo $settings['premium_pricing_table_button_text']; ?></span>
+            <span <?php echo $this->get_render_attribute_string('button_text'); ?>><?php echo $settings['premium_pricing_table_button_text']; ?></span>
         </a>
     </div>
     <?php endif; ?>
@@ -1902,11 +1906,11 @@ class Premium_Pricing_Table extends Widget_Base {
         ?>
         <#
             
-        view.addInlineEditingAttributes('premium_pricing_table_title_text');
+        view.addInlineEditingAttributes('title_text');
         
-        view.addInlineEditingAttributes('premium_pricing_table_description_text', 'advanced');
+        view.addInlineEditingAttributes('description_text', 'advanced');
         
-        view.addInlineEditingAttributes('premium_pricing_table_button_text');
+        view.addInlineEditingAttributes('button_text');
         
         var titleTag = settings.premium_pricing_table_title_size,
             linkType = settings.premium_pricing_table_button_url_type,
@@ -1925,7 +1929,7 @@ class Premium_Pricing_Table extends Widget_Base {
             <div class="premium-pricing-icon-container"><i class="{{ settings.premium_pricing_table_icon_selection }}"></i></div>
             <# } #>
             <# if('yes' === settings.premium_pricing_table_title_switcher ) { #>
-                <{{{titleTag}}} class="premium-pricing-table-title"><span {{{ view.getRenderAttributeString('premium_pricing_table_title_text') }}}>{{{ settings.premium_pricing_table_title_text }}}</span></{{{titleTag}}}>
+                <{{{titleTag}}} class="premium-pricing-table-title"><span {{{ view.getRenderAttributeString('title_text') }}}>{{{ settings.premium_pricing_table_title_text }}}</span></{{{titleTag}}}>
             <# } #>
             
             <# if('yes' === settings.premium_pricing_table_price_switcher ) { #>
@@ -1951,7 +1955,7 @@ class Premium_Pricing_Table extends Widget_Base {
             <# } #>
             <# if('yes' === settings.premium_pricing_table_description_switcher ) { #>
                 <div class="premium-pricing-description-container">
-                    <div {{{ view.getRenderAttributeString('premium_pricing_table_description_text') }}}>
+                    <div {{{ view.getRenderAttributeString('description_text') }}}>
                         {{{ settings.premium_pricing_table_description_text }}}
                     </div>
                 </div>
@@ -1959,7 +1963,7 @@ class Premium_Pricing_Table extends Widget_Base {
             <# if('yes' === settings.premium_pricing_table_button_switcher ) { #>
                 <div class="premium-pricing-button-container">
                     <a class="premium-pricing-price-button" target="_{{ settings.premium_pricing_table_button_link_target }}" href="{{ linkURL }}">
-                        <span {{{ view.getRenderAttributeString('premium_pricing_table_button_text') }}}>{{{ settings.premium_pricing_table_button_text }}}</span>
+                        <span {{{ view.getRenderAttributeString('button_text') }}}>{{{ settings.premium_pricing_table_button_text }}}</span>
                     </a>
                 </div>
             <# } #>

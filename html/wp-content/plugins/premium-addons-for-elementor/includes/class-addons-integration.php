@@ -31,7 +31,7 @@ class Premium_Addons_Integration {
         
         add_action( 'elementor/frontend/after_register_scripts', array( $this, 'register_frontend_scripts' ) );
             
-        add_action( 'wp_enqueue_scripts', array( $this, 'premium_maps_required_script' ) );
+        //add_action( 'wp_enqueue_scripts', array( $this, 'premium_maps_required_script' ) );
         
         
         add_action( 'wp_ajax_get_elementor_template_content', array( $this, 'get_template_content' ) );
@@ -78,11 +78,13 @@ class Premium_Addons_Integration {
         
     }
     
-    /** 
-    * Enqueue Preview CSS files
-    * @since 2.9.0
-    * @access public
-    */
+    /**
+     * Enqueue Preview CSS files
+     * 
+     * @since 2.9.0
+     * @access public
+     * 
+     */
     public function enqueue_preview_styles() {
         
         wp_enqueue_style('pa-prettyphoto');
@@ -90,10 +92,11 @@ class Premium_Addons_Integration {
     }
     
     /** 
-    * Enqueue Widgets` CSS file
-    * @since 2.9.0
-    * @access public
-    */
+     * Enqueue Widgets` CSS file
+     * 
+     * @since 2.9.0
+     * @access public
+     */
     public function enqueue_frontend_styles() {
         
         wp_enqueue_style(
@@ -106,21 +109,26 @@ class Premium_Addons_Integration {
         
     }
     
-    /** Load widgets require function
-    * @since 1.0.0
-    * @access public
-    */
+    /** 
+     * Load widgets require function
+     * 
+     * @since 1.0.0
+     * @access public
+     * 
+     */
     public function widgets_area() {
         $this->widgets_register();
     }
     
-    /** Requires widgets files
-    * @since 1.0.0
-    * @access private
-    */
+    /**
+     * Requires widgets files
+     * 
+     * @since 1.0.0
+     * @access private
+     */
     private function widgets_register() {
 
-        $check_component_active = PA_admin_settings::get_enabled_keys();
+        $check_component_active = PA_Elements_Settings::get_enabled_keys();
         
         foreach ( glob( PREMIUM_ADDONS_PATH . 'widgets/' . '*.php' ) as $file ) {
             
@@ -135,13 +143,15 @@ class Premium_Addons_Integration {
 
     }
     
-    /** Registers required JS files
-    * @since 1.0.0
-    * @access public
+    /**
+     * Registers required JS files
+     * 
+     * @since 1.0.0
+     * @access public
     */
     public function register_frontend_scripts() {
         
-        $premium_maps_api = PA_Gomaps::get_enabled_keys()['premium-map-api'];
+        $maps_settings = PA_Maps::get_enabled_keys();
         
         wp_register_script(
             'premium-addons-js',
@@ -198,9 +208,20 @@ class Premium_Addons_Integration {
             true
         );
         
+        if( $maps_settings['premium-map-cluster'] ) {
+            wp_register_script(
+                'google-maps-cluster',
+                'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js',
+                array(),
+                PREMIUM_ADDONS_VERSION,
+                false
+            );
+        }
+        
+        
         wp_register_script(
             'premium-maps-api-js',
-            'https://maps.googleapis.com/maps/api/js?key=' . $premium_maps_api,
+            'https://maps.googleapis.com/maps/api/js?key=' . $maps_settings['premium-map-api'],
             array(),
             PREMIUM_ADDONS_VERSION,
             false
@@ -233,43 +254,30 @@ class Premium_Addons_Integration {
     }
     
     /*
-    * Enqueue Premium Maps API script
-    */
-    public function premium_maps_required_script() {
-
-        $premium_maps_api = PA_Gomaps::get_enabled_keys()['premium-map-api'];
-        
-        $premium_maps_disable_api = PA_Gomaps::get_enabled_keys()['premium-map-disable-api'];
-
-        $premium_maps_enabled = PA_admin_settings::get_enabled_keys()['premium-maps'];
-
-        if( $premium_maps_disable_api ) {
-            
-//            wp_enqueue_script('premium-maps-api-js', 'https://maps.googleapis.com/maps/api/js?key=' . $premium_maps_api, array(), PREMIUM_ADDONS_VERSION, false);
-
-        }
-
-        if ( $premium_maps_enabled ) {
-
-            wp_enqueue_script('google-maps-cluster', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array(), PREMIUM_ADDONS_VERSION, false);
-
-        }
-
-    }
-    
+     * Enqueue editor scripts
+     * 
+     * @since 3.2.5
+     * @access public
+     */
     public function enqueue_editor_scripts() {
         
-        $premium_maps_api = PA_Gomaps::get_enabled_keys()['premium-map-api'];
+        $premium_maps_api = PA_Maps::get_enabled_keys()['premium-map-api'];
 
-        $premium_maps_disable_api = PA_Gomaps::get_enabled_keys()['premium-map-disable-api'];
+        $premium_maps_disable_api = PA_Maps::get_enabled_keys()['premium-map-disable-api'];
         
-        $map_enabled = PA_admin_settings::get_enabled_keys()['premium-maps'];
+        $map_enabled = PA_Elements_Settings::get_enabled_keys()['premium-maps'];
         
         $premium_maps_enabled = isset( $map_enabled ) ? $map_enabled : 1;
 
         if ( $premium_maps_disable_api ) {
 
-            wp_enqueue_script('premium-maps-api-js', 'https://maps.googleapis.com/maps/api/js?key=' . $premium_maps_api, array(), PREMIUM_ADDONS_VERSION, false);
+            wp_enqueue_script(
+                'premium-maps-api-js',
+                'https://maps.googleapis.com/maps/api/js?key=' . $premium_maps_api,
+                array(),
+                PREMIUM_ADDONS_VERSION,
+                false
+            );
 
         }
 
@@ -321,12 +329,16 @@ class Premium_Addons_Integration {
     }
     
     /**
-    * Register addon by file name
-    *
-    * @param  string $file            File name.
-    * @param  object $widgets_manager Widgets manager instance.
-    * @return void
-    */
+     * 
+     * Register addon by file name.
+     * 
+     * @access public
+     *
+     * @param  string $file            File name.
+     * @param  object $widgets_manager Widgets manager instance.
+     * 
+     * @return void
+     */
     public function register_addon( $file ) {
         
         $base  = basename( str_replace( '.php', '', $file ) );
@@ -352,12 +364,16 @@ class Premium_Addons_Integration {
     }
     
     /**
-    * Creates and returns an instance of the class
-    * @since 1.0.0
-    * @access public
-    * return object
-    */
-   public static function get_instance(){
+     * 
+     * Creates and returns an instance of the class
+     * 
+     * @since 1.0.0
+     * @access public
+     * 
+     * @return object
+     * 
+     */
+   public static function get_instance() {
        if( self::$instance == null ) {
            self::$instance = new self;
        }

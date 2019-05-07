@@ -485,7 +485,7 @@ if ( ! class_exists ('Premium_Addons_Wpml') ) {
                'fields'     => [
                    [
                        'field'       => 'premium_progressbar_left_label',
-                       'type'        => __( 'Progess Bar: Left Label', 'premium-addons-for-elementor' ),
+                       'type'        => __( 'Progress Bar: Left Label', 'premium-addons-for-elementor' ),
                        'editor_type' => 'LINE',
                    ],
                ],

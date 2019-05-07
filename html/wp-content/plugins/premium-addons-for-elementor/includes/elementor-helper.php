@@ -69,16 +69,20 @@ class premium_Template_Tags {
 	}
 
 	public function get_elementor_page_list() {
-		$pagelist = get_posts(array(
+        
+		$pagelist = get_posts( array(
 			'post_type' => 'elementor_library',
 			'showposts' => 999,
 		));
         
-		if ( ! empty( $pagelist ) && ! is_wp_error( $pagelist ) ){
+		if ( ! empty( $pagelist ) && ! is_wp_error( $pagelist ) ) {
+            
 			foreach ( $pagelist as $post ) {
-				$options[ $post->ID ] = __( $post->post_title, 'premium-addons-for-elementor' );
+				$options[ $post->ID ] = $post->post_title;
 			}
+            
         update_option( 'temp_count', $options );
+        
         return $options;
 		}
 	}

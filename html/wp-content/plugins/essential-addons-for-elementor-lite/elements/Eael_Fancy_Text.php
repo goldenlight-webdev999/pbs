@@ -11,6 +11,7 @@ use \Elementor\Group_Control_Border as Group_Control_Border;
 use \Elementor\Group_Control_Typography as Group_Control_Typography;
 use \Elementor\Scheme_Typography as Scheme_Typography;
 use \Elementor\Widget_Base as Widget_Base;
+use \Elementor\Repeater;
 
 class Eael_Fancy_Text extends Widget_Base {
 
@@ -69,35 +70,39 @@ class Eael_Fancy_Text extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'eael_fancy_text_strings',
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'eael_fancy_text_strings_text_field',
 			[
-				'label' => esc_html__( 'Fancy Text Strings', 'essential-addons-elementor' ),
-				'type' => Controls_Manager::REPEATER,
-				'default' => [
-					[
-						'eael_fancy_text_strings_text_field' => esc_html__( 'first string', 'essential-addons-elementor' ),
-					],
-					[
-						'eael_fancy_text_strings_text_field' => esc_html__( 'second string', 'essential-addons-elementor' ),
-					],
-					[
-						'eael_fancy_text_strings_text_field' => esc_html__( 'third string', 'essential-addons-elementor' ),
-					],
-				],
-				'fields' => [
-					[
-						'name' => 'eael_fancy_text_strings_text_field',
-						'label' => esc_html__( 'Fancy String', 'essential-addons-elementor' ),
-						'type' => Controls_Manager::TEXT,
-						'label_block' => true,
-						'dynamic' => [ 'active' => true ]
-					],
-				],
-				'title_field' => '{{{ eael_fancy_text_strings_text_field }}}',
+				'label'			=> esc_html__( 'Fancy String', 'essential-addons-elementor' ),
+				'type'			=> Controls_Manager::TEXT,
+				'label_block'	=> true,
+				'dynamic'		=> [ 'active' => true ]
 			]
 		);
 
+		$this->add_control(
+			'eael_fancy_text_strings',
+			[
+				'label'       => __( 'Fancy Text Strings', 'essential-addons-elementor' ),
+				'type'        => Controls_Manager::REPEATER,
+				'show_label'  => true,
+				'fields'      => array_values( $repeater->get_controls() ),
+				'title_field' => '{{{ eael_fancy_text_strings_text_field }}}',
+				'default'     => [
+					[
+						'eael_fancy_text_strings_text_field' => __( 'First string', 'essential-addons-elementor' ),
+					],
+					[
+						'eael_fancy_text_strings_text_field' => __( 'Second string', 'essential-addons-elementor' ),
+					],
+					[
+						'eael_fancy_text_strings_text_field' => __( 'Third string', 'essential-addons-elementor' ),
+					]
+				],
+			]
+		);
 
 		$this->add_control(
 			'eael_fancy_text_suffix',
@@ -110,8 +115,6 @@ class Eael_Fancy_Text extends Widget_Base {
 			]
 		);
 
-
-
 		$this->end_controls_section();
 
 		// Settings Control
@@ -120,28 +123,36 @@ class Eael_Fancy_Text extends Widget_Base {
   			[
   				'label' => esc_html__( 'Fancy Text Settings', 'essential-addons-elementor' )
   			]
-  		);
-
+		);
+		
+		$style_options = apply_filters(
+			'fancy_text_style_types',
+			[
+				'styles'	=> [
+					'style-1' => esc_html__( 'Style 1', 'essential-addons-elementor' ),
+					'style-2' => esc_html__( 'Style 2 (Pro)', 'essential-addons-elementor' ),
+				],
+				'conditions'	=> ['style-2']
+			]
+		);
+		
   		$this->add_control(
 			'eael_fancy_text_style',
 			[
-				'label' => esc_html__( 'Style Type', 'essential-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Style Type', 'essential-addons-elementor' ),
+				'type'    => Controls_Manager::SELECT,
 				'default' => 'style-1',
-				'options' => [
-					'style-1' => esc_html__( 'Style 1', 'essential-addons-elementor' ),
-					'style-2' => esc_html__( 'Style 2', 'essential-addons-elementor' ),
-				],
+				'options' => $style_options['styles']
 			]
 		);
 
 		$this->add_control(
 			'eael_fancy_text_style_pro_alert',
 			[
-				'label' => esc_html__( 'Only available in pro version!', 'essential-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
+				'label'     => esc_html__( 'Only available in pro version!', 'essential-addons-elementor' ),
+				'type'      => Controls_Manager::HEADING,
 				'condition' => [
-					'eael_fancy_text_style' => ['style-2'],
+					'eael_fancy_text_style' => $style_options['conditions'],
 				]
 			]
 		);
@@ -179,15 +190,15 @@ class Eael_Fancy_Text extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => 'typing',
 				'options' => [
-					'typing' => esc_html__( 'Typing', 'essential-addons-elementor' ),
-					'fadeIn' => esc_html__( 'Fade', 'essential-addons-elementor' ),
-					'fadeInUp' => esc_html__( 'Fade Up', 'essential-addons-elementor' ),
-					'fadeInDown' => esc_html__( 'Fade Down', 'essential-addons-elementor' ),
-					'fadeInLeft' => esc_html__( 'Fade Left', 'essential-addons-elementor' ),
+					'typing'      => esc_html__( 'Typing', 'essential-addons-elementor' ),
+					'fadeIn'      => esc_html__( 'Fade', 'essential-addons-elementor' ),
+					'fadeInUp'    => esc_html__( 'Fade Up', 'essential-addons-elementor' ),
+					'fadeInDown'  => esc_html__( 'Fade Down', 'essential-addons-elementor' ),
+					'fadeInLeft'  => esc_html__( 'Fade Left', 'essential-addons-elementor' ),
 					'fadeInRight' => esc_html__( 'Fade Right', 'essential-addons-elementor' ),
-					'zoomIn' => esc_html__( 'Zoom', 'essential-addons-elementor' ),
-					'bounceIn' => esc_html__( 'Bounce', 'essential-addons-elementor' ),
-					'swing' => esc_html__( 'Swing', 'essential-addons-elementor' ),
+					'zoomIn'      => esc_html__( 'Zoom', 'essential-addons-elementor' ),
+					'bounceIn'    => esc_html__( 'Bounce', 'essential-addons-elementor' ),
+					'swing'       => esc_html__( 'Swing', 'essential-addons-elementor' ),
 				],
 			]
 		);
@@ -239,8 +250,6 @@ class Eael_Fancy_Text extends Widget_Base {
 				],
 			]
 		);
-
-
 		$this->end_controls_section();
 
         $this->start_controls_section(
@@ -295,10 +304,7 @@ class Eael_Fancy_Text extends Widget_Base {
 				'selector' => '{{WRAPPER}} .eael-fancy-text-prefix',
 			]
 		);
-
-
 		$this->end_controls_section();
-
 
 
 		$this->start_controls_section(
@@ -379,8 +385,6 @@ class Eael_Fancy_Text extends Widget_Base {
 			]
 		);
 
-
-
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
@@ -388,7 +392,6 @@ class Eael_Fancy_Text extends Widget_Base {
 				'selector' => '{{WRAPPER}} .eael-fancy-text-strings',
 			]
 		);
-
 
 		$this->add_control(
 			'eael_fancy_text_strings_border_radius',
@@ -406,10 +409,7 @@ class Eael_Fancy_Text extends Widget_Base {
 				],
 			]
 		);
-
-
 		$this->end_controls_section();
-
 
 
 		$this->start_controls_section(

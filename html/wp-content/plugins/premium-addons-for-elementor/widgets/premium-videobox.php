@@ -12,7 +12,7 @@ class Premium_Videobox extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Video Box';
+		return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Video Box', 'premium-addons-for-elementor') );
 	}
 
     public function get_icon() {
@@ -35,31 +35,31 @@ class Premium_Videobox extends Widget_Base {
 
         $this->start_controls_section('premium_video_box_general_settings',
             [
-                'label'         => esc_html__('Video Box', 'premium-addons-for-elementor'),
+                'label'         => __('Video Box', 'premium-addons-for-elementor'),
             ]
         );
         
         $this->add_control('premium_video_box_video_type',
             [
-                'label'         => esc_html__('Video Type', 'premium-addons-for-elementor'),
+                'label'         => __('Video Type', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SELECT,
                 'default'       => 'youtube',
                 'options'       => [
-                    'youtube'       => esc_html__('Youtube', 'premium-addons-for-elementor'),
-                    'vimeo'         => esc_html__('Vimeo', 'premium-addons-for-elementor'),
-                    'self'          => esc_html__('Self Hosted', 'premium-addons-for-elementor'),
+                    'youtube'       => __('Youtube', 'premium-addons-for-elementor'),
+                    'vimeo'         => __('Vimeo', 'premium-addons-for-elementor'),
+                    'self'          => __('Self Hosted', 'premium-addons-for-elementor'),
                 ]
             ]
         );
         
         $this->add_control('premium_video_box_video_id_embed_selection',
             [
-                'label'         => esc_html__('Link', 'premium-addons-for-elementor'),
+                'label'         => __('Link', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::HIDDEN,
                 'default'       => 'id',
                 'options'       => [
-                    'id'    => esc_html__('ID', 'premium-addons-for-elementor'),
-                    'embed' => esc_html__('Embed URL', 'premium-addons-for-elementor'),
+                    'id'    => __('ID', 'premium-addons-for-elementor'),
+                    'embed' => __('Embed URL', 'premium-addons-for-elementor'),
                     ],
                 'condition'     => [
                     'premium_video_box_video_type!' => 'self',
@@ -69,8 +69,8 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_video_id', 
             [
-                'label'         => esc_html__('Video ID', 'premium-addons-for-elementor'),
-                'description'   => esc_html__('Enter the numbers and letters after the equal sign which located in your YouTube video link or after the slash sign in your Vimeo video link. For example, z1hQgVpfTKU', 'premium-addons-for-elementor'),
+                'label'         => __('Video ID', 'premium-addons-for-elementor'),
+                'description'   => __('Enter the numbers and letters after the equal sign which located in your YouTube video link or after the slash sign in your Vimeo video link. For example, z1hQgVpfTKU', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::HIDDEN,
                 'dynamic'       => [ 'active' => true ],
                 'condition'     => [
@@ -82,8 +82,8 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_video_embed', 
             [
-                'label'         => esc_html__('Embed URL', 'premium-addons-for-elementor'),
-                'description'   => esc_html__('Enter your YouTube/Vimeo video link. For example, https://www.youtube.com/embed/z1hQgVpfTKU', 'premium-addons-for-elementor'),
+                'label'         => __('Embed URL', 'premium-addons-for-elementor'),
+                'description'   => __('Enter your YouTube/Vimeo video link. For example, https://www.youtube.com/embed/z1hQgVpfTKU', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::HIDDEN,
                 'dynamic'       => [ 'active' => true ],
                 'condition'     => [
@@ -95,7 +95,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_link', 
             [
-                'label'         => esc_html__('Link', 'premium-addons-for-elementor'),
+                'label'         => __('Link', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::TEXT,
                 'dynamic'       => [ 'active' => true ],
                 'condition'     => [
@@ -106,7 +106,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_self_hosted',
             [
-                'label'         => esc_html__('URL', 'premium-addons-for-elementor'),
+                'label'         => __('URL', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::MEDIA,
                 'dynamic'       => [
                     'active' => true,
@@ -124,9 +124,9 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_related_video',
             [
-                'label'         => esc_html__('Show Related Videos', 'premium-addons-for-elementor'),
+                'label'         => __('Show Related Videos', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SWITCHER,
-                'description'   => esc_html__('Enable/Disable related videos after the video'),
+                'description'   => __('Enable/Disable related videos after the video'),
                 'default'       => 'yes',
                 'condition'     => [
                     'premium_video_box_video_type' => 'youtube',
@@ -136,22 +136,22 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_mute',
             [
-                'label'         => esc_html__('Mute', 'premium-addons-for-elementor'),
+                'label'         => __('Mute', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SWITCHER,
-                'description'   => esc_html__('This will play the video muted')
+                'description'   => __('This will play the video muted')
             ]
         );
         
         $this->add_control('premium_video_box_loop',
             [
-                'label'         => esc_html__('Loop', 'premium-addons-for-elementor'),
+                'label'         => __('Loop', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SWITCHER,
             ]
         );
         
         $this->add_control('premium_video_box_image_switcher',
             [
-                'label'         => esc_html__('Overlay', 'premium-addons-for-elementor'),
+                'label'         => __('Overlay', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SWITCHER,
                 'default'       => 'yes'
             ]
@@ -161,7 +161,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->start_controls_section('premium_video_box_image_settings', 
             [
-                'label'         => esc_html__('Overlay', 'premium-addons-for-elementor'),
+                'label'         => __('Overlay', 'premium-addons-for-elementor'),
                 'condition'     => [
                     'premium_video_box_image_switcher'  => 'yes'
                 ]
@@ -170,8 +170,8 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_image',
             [
-                'label'         => esc_html__('Image', 'premium-addons-for-elementor'),
-                'description'   => esc_html__('Choose an image for the video box', 'premium-addons-for-elementor' ),
+                'label'         => __('Image', 'premium-addons-for-elementor'),
+                'description'   => __('Choose an image for the video box', 'premium-addons-for-elementor' ),
                 'type'          => Controls_Manager::MEDIA,
                 'dynamic'       => [ 'active' => true ],
                 'default'       => [
@@ -185,13 +185,13 @@ class Premium_Videobox extends Widget_Base {
         
         $this->start_controls_section('premium_video_box_play_icon_settings', 
             [
-                'label'         => esc_html__('Play Icon', 'premium-addons-for-elementor')
+                'label'         => __('Play Icon', 'premium-addons-for-elementor')
             ]
         );
         
         $this->add_control('premium_video_box_play_icon_switcher',
             [
-                'label'         => esc_html__('Play Icon', 'premium-addons-for-elementor'),
+                'label'         => __('Play Icon', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SWITCHER,
                 'default'       => 'yes'
             ]
@@ -199,7 +199,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_icon_hor_position', 
             [
-                'label'         => esc_html__('Horizontal Position (%)', 'premium-addons-for-elementor'),
+                'label'         => __('Horizontal Position (%)', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SLIDER,
                 'label_block'   => true,
                 'default'       => [
@@ -216,7 +216,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_icon_ver_position', 
             [
-                'label'         => esc_html__('Vertical Position (%)', 'premium-addons-for-elementor'),
+                'label'         => __('Vertical Position (%)', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SLIDER,
                 'label_block'   => true,
                 'default'       => [
@@ -235,20 +235,20 @@ class Premium_Videobox extends Widget_Base {
         
         $this->start_controls_section('premium_video_box_description_text_section', 
             [
-                'label'         => esc_html__('Description', 'premium-addons-for-elementor'),
+                'label'         => __('Description', 'premium-addons-for-elementor'),
             ]
         );
         
         $this->add_control('premium_video_box_video_text_switcher',
             [
-                'label'         => esc_html__('Video Text', 'premium-addons-for-elementor'),
+                'label'         => __('Video Text', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SWITCHER,
             ]
         );
         
         $this->add_control('premium_video_box_description_text', 
             [
-                'label'         => esc_html__('Text', 'premium-addons-for-elementor'),
+                'label'         => __('Text', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::TEXTAREA,
                 'dynamic'       => [ 'active' => true ],
                 'default'       => __('Play Video','premium-addons-for-elementor'),
@@ -262,7 +262,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_description_ver_position', 
             [
-                'label'         => esc_html__('Vertical Position (%)', 'premium-addons-for-elementor'),
+                'label'         => __('Vertical Position (%)', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SLIDER,
                 'label_block'   => true,
                 'default'       => [
@@ -279,7 +279,7 @@ class Premium_Videobox extends Widget_Base {
         
          $this->add_control('premium_video_box_description_hor_position', 
             [
-                'label'         => esc_html__('Horizontal Position (%)', 'premium-addons-for-elementor'),
+                'label'         => __('Horizontal Position (%)', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SLIDER,
                 'label_block'   => true,
                 'default'       => [
@@ -298,7 +298,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->start_controls_section('premium_video_box_text_style_section', 
             [
-                'label'         => esc_html__('Video Box','premium-addons-for-elementor'),
+                'label'         => __('Video Box','premium-addons-for-elementor'),
                 'tab'           => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -314,7 +314,7 @@ class Premium_Videobox extends Widget_Base {
         //Border Radius Properties sepearated for responsive issues
         $this->add_responsive_control('premium_video_box_image_border_radius', 
             [
-                'label'         => esc_html__('Border Radius', 'premium-addons-for-elementor'),
+                'label'         => __('Border Radius', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SLIDER,
                 'size_units'    => ['px', '%', 'em'],
                 'selectors'     => [
@@ -326,7 +326,7 @@ class Premium_Videobox extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'label'         => esc_html__('Shadow','premium-addons-for-elementor'),
+                'label'         => __('Shadow','premium-addons-for-elementor'),
                 'name'          => 'box_shadow',
                 'selector'      => '{{WRAPPER}} .premium-video-box-image-container',
             ]
@@ -336,7 +336,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->start_controls_section('premium_video_box_icon_style', 
             [
-                'label'         => esc_html__('Play Icon','premium-addons-for-elementor'),
+                'label'         => __('Play Icon','premium-addons-for-elementor'),
                 'tab'           => Controls_Manager::TAB_STYLE,
                 'condition'     => [
                     'premium_video_box_play_icon_switcher'  => 'yes',
@@ -346,7 +346,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_play_icon_color', 
             [
-                'label'         => esc_html__('Color', 'premium-addons-for-elementor'),
+                'label'         => __('Color', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::COLOR,
                 'scheme'        => [
                     'type'  => Scheme_Color::get_type(),
@@ -360,7 +360,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_play_icon_color_hover', 
             [
-                'label'         => esc_html__('Hover Color', 'premium-addons-for-elementor'),
+                'label'         => __('Hover Color', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::COLOR,
                 'scheme'        => [
                     'type'  => Scheme_Color::get_type(),
@@ -374,7 +374,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_play_icon_size',
             [
-                'label'         => esc_html__('Size', 'premium-addons-for-elementor'),
+                'label'         => __('Size', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SLIDER,
                 'default'       => [
                     'unit'  => 'px',
@@ -406,7 +406,7 @@ class Premium_Videobox extends Widget_Base {
     
         $this->add_control('premium_video_box_icon_border_radius', 
             [
-                'label'         => esc_html__('Border Radius', 'premium-addons-for-elementor'),
+                'label'         => __('Border Radius', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SLIDER,
                 'default'       => [
                     'unit'  => 'px',
@@ -421,7 +421,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_responsive_control('premium_video_box_icon_padding',
             [
-                'label'         => esc_html__('Padding', 'premium-addons-for-elementor'),
+                'label'         => __('Padding', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'default'       => [
                     'top'   => 40,
@@ -439,16 +439,16 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_icon_hover_animation',
             [
-                'label'         => esc_html__('Hover Animation', 'premium-addons-for-elementor'),
+                'label'         => __('Hover Animation', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::SWITCHER,
-                'description'   => esc_html__('Hover animation works only when you set a background color or image for play icon', 'premium-addons-for-elementor'),
+                'description'   => __('Hover animation works only when you set a background color or image for play icon', 'premium-addons-for-elementor'),
                 'default'       => 'yes',
             ]
         );
         
         $this->add_responsive_control('premium_video_box_icon_padding_hover',
             [
-                'label'         => esc_html__('Hover Padding', 'premium-addons-for-elementor'),
+                'label'         => __('Hover Padding', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => [ 'px', 'em', '%' ],
                 'selectors'     => [
@@ -464,7 +464,7 @@ class Premium_Videobox extends Widget_Base {
        
         $this->start_controls_section('premium_video_box_text_style', 
             [
-                'label'         => esc_html__('Video Text', 'premium-addons-for-elementor'),
+                'label'         => __('Video Text', 'premium-addons-for-elementor'),
                 'tab'           => Controls_Manager::TAB_STYLE,
                 'condition'     => [
                     'premium_video_box_video_text_switcher' => 'yes'
@@ -474,7 +474,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_text_color',
             [
-                'label'         => esc_html__('Text Color', 'premium-addons-for-elementor'),
+                'label'         => __('Text Color', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::COLOR,
                 'scheme'        => [
                     'type'  => Scheme_Color::get_type(),
@@ -488,7 +488,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_text_color_hover',
             [
-                'label'         => esc_html__('Hover Color', 'premium-addons-for-elementor'),
+                'label'         => __('Hover Color', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::COLOR,
                 'scheme'        => [
                     'type'  => Scheme_Color::get_type(),
@@ -511,7 +511,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_control('premium_video_box_text_background_color',
             [
-                'label'         => esc_html__('Background Color', 'premium-addons-for-elementor'),
+                'label'         => __('Background Color', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::COLOR,
                 'scheme'        => [
                     'type'  => Scheme_Color::get_type(),
@@ -525,7 +525,7 @@ class Premium_Videobox extends Widget_Base {
         
         $this->add_responsive_control('premium_video_box_text_padding',
             [
-                'label'         => esc_html__('Padding', 'premium-addons-for-elementor'),
+                'label'         => __('Padding', 'premium-addons-for-elementor'),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => [ 'px', 'em', '%' ],
                 'selectors'     => [
@@ -537,7 +537,7 @@ class Premium_Videobox extends Widget_Base {
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(),
             [
-                'label'         => esc_html__('Shadow','premium-addons-for-elementor'),
+                'label'         => __('Shadow','premium-addons-for-elementor'),
                 'name'          => 'premium_text_shadow',
                 'selector'      => '.premium-video-box-text'
             ]

@@ -5,7 +5,7 @@ Donate link: http://premiumaddons.com
 Requires at least: 4.5
 Tested up to: 5.1.1
 Requires PHP: 5.4
-Stable tag: 3.2.7
+Stable tag: 3.3.6
 License: GPL v3.0
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -138,6 +138,48 @@ Premium Addons for Elementor is 100% Ads Free, Ads can only be detected from You
 14. Premium Progress Bar Widget for Elementor
 
 == Changelog ==
+
+= 3.3.6 =
+
+- Fixed: class `PremiumAddons\Premium_Addons_Integration` does not have a method `premium_maps_required_script`
+
+= 3.3.5 =
+
+- Tweak: Added `Load Markers Clustering JS File` option to admin Google Maps API page.
+- Tweak: Added `Pull Excerpt From Content Box` option in Blog widget.
+- Tweak: Separate Excerpt link style options from meta tab in Blog widget.
+
+= 3.3.4 =
+
+- Fixed: `markercluster.js` file is loaded even when Maps widget not on the page.
+- Fixed: Text and icon are not horizontally centered in Button and Image Button widgets.
+
+= 3.3.3 =
+
+- Fixed: `Read More` button doesn't show when `The Excerpt` post field is set in Blog widget.
+
+= 3.3.2 =
+
+- Tweak: Added `_content_template()` method for Counter widget to enhance rendering speed.
+
+= 3.3.1 =
+
+- Fixed: `Hover Opacity`, `Title Background` options don't work after v3.3.0.
+
+= 3.3.0 =
+
+- Tweak: Added `Link Title` option in Banner widget.
+- Tweak: Added `_content_template()` method for Banner widget to enhance rendering speed.
+
+= 3.2.9 =
+
+- Tweak: Added `Box Shadow` option for content in Blog widget.
+
+= 3.2.8 =
+
+- Tweak: Added Thumbnail `Min/Max Height`, `Fit` option for Blog widget.
+- Fixed: Blog masonry is triggered even with `Grid` option is disabled.
+- Fixed: Self hosted videos are stretched on full screen mode in Video Box widget.
 
 = 3.2.7 =
 

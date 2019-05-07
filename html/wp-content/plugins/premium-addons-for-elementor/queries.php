@@ -43,30 +43,33 @@ function premium_blog_get_post_settings( $settings ) {
         return $post_args;
 } 
 
-function premium_addons_get_excerpt_by_id( $post_id, $excerpt_length, $excerpt_type, $exceprt_text ){
-    $the_post = get_post($post_id);
+function premium_addons_get_excerpt_by_id( $post_id, $excerpt_length, $excerpt_type, $exceprt_text, $excerpt_src ) {
+    
+    $the_post = get_post( $post_id );
 
     $the_excerpt = null;
-    if ($the_post)
-    {
-        $the_excerpt = $the_post->post_excerpt ? $the_post->post_excerpt : $the_post->post_content;
+    
+    if ( $the_post ) {
+        $the_excerpt = ( $excerpt_src ) ? $the_post->post_content : $the_post->post_excerpt;
     }
 
-    $the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
-    $words = explode(' ', $the_excerpt, $excerpt_length + 1);
+    $the_excerpt = strip_tags( strip_shortcodes( $the_excerpt ) );
+    
+    $words = explode( ' ', $the_excerpt, $excerpt_length + 1 );
 
-     if(count($words) > $excerpt_length) :
-         array_pop($words);
-         if( 'dots' == $excerpt_type){
-            array_push($words, '…');
+     if( count( $words ) > $excerpt_length ) :
+         array_pop( $words );
+         if( 'dots' == $excerpt_type ) {
+            array_push( $words, '…' );
          } else {
-            array_push($words, ' <a href="' . get_permalink($post_id) .'" class="premium-blog-excerpt-link">' . $exceprt_text . '</a>'); 
+            array_push( $words, ' <a href="' . get_permalink( $post_id ) .'" class="premium-blog-excerpt-link">' . $exceprt_text . '</a>' ); 
          }
          
-         $the_excerpt = implode(' ', $words);
+         $the_excerpt = implode( ' ', $words );
      endif;
 
      return $the_excerpt;
+     
 }
 
 function premium_addons_post_type_categories() {

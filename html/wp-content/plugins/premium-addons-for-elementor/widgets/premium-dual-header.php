@@ -16,7 +16,7 @@ class Premium_Dual_Header extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Dual Heading';
+        return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Dual Heading', 'premium-addons-for-elementor') );
 	}
 
     
@@ -471,7 +471,7 @@ class Premium_Dual_Header extends Widget_Base {
     }
 
     protected function render() {
-        // get our input from the widget settings.
+        
         $settings = $this->get_settings_for_display();
 
         $this->add_inline_editing_attributes('premium_dual_header_first_header_text');

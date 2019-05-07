@@ -15,7 +15,7 @@ class Premium_Image_Separator extends Widget_Base {
     }
 
     public function get_title() {
-		return \PremiumAddons\Helper_Functions::get_prefix() . ' Image Separator';
+		return sprintf( '%1$s %2$s', \PremiumAddons\Helper_Functions::get_prefix(), __('Image Separator', 'premium-addons-for-elementor') );
 	}
 
     public function get_icon() {
@@ -201,7 +201,7 @@ class Premium_Image_Separator extends Widget_Base {
         /*Start Style Section*/
         $this->start_controls_section('premium_image_separator_style',
             [
-                'label'         => __('Fancy Text', 'premium-addons-for-elementor'),
+                'label'         => __('Image', 'premium-addons-for-elementor'),
                 'tab'           => Controls_Manager::TAB_STYLE,
             ]
         );
